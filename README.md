@@ -21,7 +21,7 @@ Install latex:
 
 Package yang diperlukan:
 ```bash
-tlmgr install inputenc fontenc mathptmx courier helvet amsmath babel geometry setspace titlesec graphicx hyperref booktabs array caption enumitem parskip fancyhdr tocloft tabularx longtable ragged2e biblatex bibtex logreq xstring
+tlmgr install inputenc fontenc mathptmx courier helvet amsmath amsfonts psnfss babel geometry setspace titlesec graphicx hyperref booktabs array caption enumitem parskip fancyhdr tocloft tabularx longtable ragged2e csquotes biblatex biber logreq xstring pifont multirow
 ```
 
 Atau install satu per satu:
@@ -32,6 +32,10 @@ tlmgr install mathptmx
 tlmgr install courier
 tlmgr install helvet
 tlmgr install amsmath
+tlmgr install amsfonts
+tlmgr install psnfss
+tlmgr install pifont
+tlmgr install multirow
 tlmgr install babel
 tlmgr install geometry
 tlmgr install setspace
@@ -48,8 +52,9 @@ tlmgr install tocloft
 tlmgr install tabularx
 tlmgr install longtable
 tlmgr install ragged2e
+tlmgr install csquotes
 tlmgr install biblatex
-tlmgr install bibtex
+tlmgr install biber
 tlmgr install logreq
 tlmgr install xstring
 ```
@@ -62,7 +67,7 @@ Untuk compile dokumen LaTeX, jalankan script PowerShell:
 
 Script ini akan otomatis menjalankan:
 1. `pdflatex` untuk kompilasi awal
-2. `bibtex` untuk memproses referensi
+2. `biber` untuk memproses referensi
 3. `pdflatex` dua kali lagi untuk finalisasi cross-references
 4. Isi konten laporan pada file tex di dalam folder chapters
 

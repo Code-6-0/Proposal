@@ -11,6 +11,8 @@
 \usepackage{courier}  % Courier for monospace
 \usepackage{helvet}   % Helvetica for sans-serif
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
 \usepackage{babel}
 \babelprovide[import, main]{indonesian}
 \babelprovide[import]{english}
@@ -32,7 +34,16 @@
 \usepackage{ragged2e}
 \usepackage{csquotes}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{float}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\DeclareQuoteStyle{indonesian}
+  {\textquotedblleft}
+  {\textquotedblright}
+  [0.05em]
+  {\textquoteleft}
+  {\textquoteright}
 
 % Page Setup - sesuai template: minimal 2.5cm semua sisi
 \geometry{
@@ -208,6 +219,7 @@
 
 % Beginning of Document
 \begin{document}
+\hypersetup{pageanchor=false}
 
 % Force TOC title to be uppercase
 \renewcommand{\contentsname}{DAFTAR ISI}
@@ -249,6 +261,7 @@
 \setcounter{section}{0}
 \pagenumbering{arabic}
 \setcounter{page}{1}
+\hypersetup{pageanchor=true}
 
 \section*{ABSTRAK}
 \phantomsection

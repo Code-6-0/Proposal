@@ -1,6 +1,6 @@
 # Script PowerShell untuk kompilasi dokumen LaTeX
 # File: compile-latex.ps1
-# Deskripsi: Mengkompilasi Template-Ujian-Kualifikasi-DJN.tex secara otomatis
+# Deskripsi: Mengkompilasi bukped.tex secara otomatis
 
 # Set nama file (tanpa ekstensi)
 $TexFile = "bukped"
