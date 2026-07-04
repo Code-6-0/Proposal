@@ -1,0 +1,55 @@
+\subsection{Scope yang Dicakup}
+
+ResQfood versi kompetisi ini mencakup fitur-fitur utama berikut:
+
+\begin{table}[H]
+\centering
+\caption{Scope Fitur ResQfood}
+\label{tab:scope}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Modul} & \textbf{Fitur} & \textbf{Status} \\
+\midrule
+\multirow{3}{*}{Admin} & Dashboard Analitik & Terimplementasi \\
+& Manajemen User & Terimplementasi \\
+& Monitoring Produk & Terimplementasi \\
+\addlinespace
+\multirow{5}{*}{UMKM} & Kelola Produk & Terimplementasi \\
+& Food Eligibility Assessment & Terimplementasi \\
+& Dynamic Pricing & Terimplementasi \\
+& Riwayat Penjualan & Terimplementasi \\
+& Tracking Pesanan & Terimplementasi \\
+\addlinespace
+\multirow{4}{*}{Customer} & Marketplace & Terimplementasi \\
+& Checkout \& Pembayaran & Terimplementasi \\
+& Tracking Pesanan & Terimplementasi \\
+& Rating \& Ulasan & Terimplementasi \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Scope yang Tidak Dicakup}
+
+Fitur-fitur berikut sengaja di-\textit{exclude} dari versi kompetisi ini dan direncanakan untuk pengembangan selanjutnya:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Sistem Prediksi Produksi Harian} — Membutuhkan data historis yang cukup dan validasi model yang lebih panjang.
+    \item \textbf{Mekanisme Donasi Otomatis} — Memerlukan kerjasama dengan lembaga donasi dan verifikasi penerima.
+    \item \textbf{Fitur Chat Real-time} — Membutuhkan infrastruktur tambahan dan moderasi konten.
+    \item \textbf{Mobile Application} — Fokus pengembangan saat ini adalah versi web responsive.
+    \item \textbf{Integrasi Payment Gateway} — Menggunakan simulasi pembayaran untuk versi kompetisi.
+\end{enumerate}
+
+\subsection{Keterbatasan Teknis}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Platform} — Aplikasi dikembangkan sebagai web application yang dapat diakses melalui browser di desktop dan mobile (responsive design).
+    
+    \item \textbf{Koneksi Internet} — Aplikasi membutuhkan koneksi internet yang stabil untuk berfungsi optimal. Mode offline belum didukung.
+    
+    \item \textbf{Browser Support} — Dukungan penuh untuk Chrome, Firefox, Safari, dan Edge versi terbaru.
+    
+    \item \textbf{Skalabilitas Awal} — Infrastruktur saat ini dirancang untuk mendukung hingga 1.000 pengguna simultan. Optimasi untuk skala lebih besar akan dilakukan setelah kompetisi.
+    
+    \item \textbf{Data Historis} — Fitur prediksi membutuhkan minimal 30 hari data penjualan untuk menghasilkan prediksi yang akurat.
+\end{enumerate}

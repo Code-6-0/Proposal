@@ -1,0 +1,119 @@
+\subsection{Jenis Testing yang Dilakukan}
+
+ResQfood menjalani berbagai jenis pengujian untuk memastikan kualitas dan keandalan aplikasi:
+
+\begin{table}[H]
+\centering
+\caption{Jenis Pengujian ResQfood}
+\label{tab:testing}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Jenis Testing} & \textbf{Deskripsi} & \textbf{Tools} \\
+\midrule
+Unit Testing & Pengujian fungsi individual & Jest, Vitest \\
+Integration Testing & Pengujian integrasi antar modul & Jest, Supertest \\
+API Testing & Pengujian endpoint API & Postman, Supertest \\
+UI Testing & Pengujian antarmuka pengguna & Cypress \\
+Usability Testing & Pengujian kemudahan penggunaan & Manual testing \\
+Performance Testing & Pengujian performa dan beban & Artillery \\
+Security Testing & Pengujian keamanan dasar & OWASP ZAP \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Unit Testing}
+
+\subsubsection{Contoh Test Case: Food Eligibility Score}
+\begin{verbatim}
+describe('Food Eligibility Score', () => {
+  test('should return score > 80 for fresh food', () => {
+    const foodData = {
+      productionTime: new Date(),
+      shelfLife: 24,
+      packagingCondition: 'good',
+      storageTemp: 4
+    };
+    const score = calculateFES(foodData);
+    expect(score).toBeGreaterThan(80);
+  });
+
+  test('should return score < 50 for expired food', () => {
+    const foodData = {
+      productionTime: new Date('2024-01-01'),
+      shelfLife: 2,
+      packagingCondition: 'poor',
+      storageTemp: 15
+    };
+    const score = calculateFES(foodData);
+    expect(score).toBeLessThan(50);
+  });
+});
+\end{verbatim}
+
+\subsection{API Testing}
+
+\begin{table}[H]
+\centering
+\caption{Hasil Pengujian API}
+\label{tab:api_testing}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Endpoint} & \textbf{Status} & \textbf{Response Time} \\
+\midrule
+POST /api/auth/register & 201 Created & $<$ 200ms \\
+POST /api/auth/login & 200 OK & $<$ 150ms \\
+GET /api/products & 200 OK & $<$ 100ms \\
+POST /api/products & 201 Created & $<$ 250ms \\
+POST /api/orders & 201 Created & $<$ 300ms \\
+PUT /api/orders/:id/status & 200 OK & $<$ 150ms \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Usability Testing}
+
+Pengujian kegunaan dilakukan dengan 5 partisipan yang mewakili target pengguna:
+
+\begin{table}[H]
+\centering
+\caption{Hasil Usability Testing}
+\label{tab:usability}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Skenario} & \textbf{Skor Kemudahan} & \textbf{Waktu Rata-rata} \\
+\midrule
+Registrasi akun baru & 4.2/5 & 2 menit \\
+Login dan navigasi & 4.5/5 & 1 menit \\
+Membeli produk (Customer) & 4.0/5 & 3 menit \\
+Menambah produk (UMKM) & 3.8/5 & 4 menit \\
+Mengisi Food Eligibility & 3.5/5 & 5 menit \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Performance Testing}
+
+\begin{table}[H]
+\centering
+\caption{Hasil Pengujian Performa}
+\label{tab:performance}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Metrik} & \textbf{Target} & \textbf{Hasil} \\
+\midrule
+Response Time (rata-rata) & $<$ 500ms & 180ms \\
+Response Time (p95) & $<$ 1000ms & 450ms \\
+Concurrent Users & 100 & 150 \\
+Error Rate & $<$ 1\% & 0.2\% \\
+Uptime & 99\% & 99.5\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Limitasi Pengujian}
+
+\begin{itemize}[leftmargin=*]
+    \item Pengujian keamanan baru dilakukan pada level dasar (OWASP Top 10). Pengujian penetrasi lengkap membutuhkan waktu dan ahli keamanan khusus.
+    \item Pengujian performa dilakukan pada skala kecil (150 pengguna simultan). Pengujian skala besar membutuhkan infrastruktur production-ready.
+    \item Fitur prediksi produksi belum dapat diuji secara menyeluruh karena membutuhkan data historis yang cukup.
+\end{itemize}

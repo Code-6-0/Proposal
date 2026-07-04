@@ -1,21 +1,77 @@
-% Lampiran
-% Tambahkan konten lampiran di sini jika diperlukan
-
-% Contoh:
-% \section*{LAMPIRAN A}
-% \addcontentsline{toc}{section}{LAMPIRAN A}
-% Konten lampiran A...
 \section*{LAMPIRAN}
 \phantomsection
 \addcontentsline{toc}{section}{LAMPIRAN}
 
-\subsection*{Bibliometrik}
+\subsection*{Lampiran A: Skema Warna}
 \phantomsection
-\addcontentsline{toc}{subsection}{Bibliometrik}
+\addcontentsline{toc}{subsection}{Lampiran A: Skema Warna}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1.0\textwidth]{figures/bibliometric-overview.png}
-    \caption{Visualisasi Overview Bibliometrik (Biblioshiny)}
-    \label{fig:bibliometrik_overview}
-\end{figure}
+\begin{table}[H]
+\centering
+\caption{Skema Warna ResQfood}
+\label{tab:warna}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Nama} & \textbf{Kode Hex} & \textbf{Kegunaan} \\
+\midrule
+Primary Green & \#2E7D32 & Tombol utama, aksen positif \\
+Secondary Orange & \#FF8F00 & Harga diskon, notifikasi \\
+Background & \#FAFAFA & Latar belakang halaman \\
+Text Primary & \#212121 & Teks utama \\
+Text Secondary & \#757575 & Teks sekunder \\
+Error Red & \#D32F2F & Pesan error \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Lampiran B: Database Schema}
+\phantomsection
+\addcontentsline{toc}{subsection}{Lampiran B: Database Schema}
+
+\begin{table}[H]
+\centering
+\caption{Schema Tabel Users}
+\label{tab:schema_users}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Kolom} & \textbf{Tipe} & \textbf{Keterangan} \\
+\midrule
+id & UUID & Primary Key \\
+email & VARCHAR(255) & Unique, NOT NULL \\
+password & VARCHAR(255) & Hashed, NOT NULL \\
+name & VARCHAR(255) & NOT NULL \\
+role & ENUM & admin, umkm, customer \\
+phone & VARCHAR(20) & Nullable \\
+address & TEXT & Nullable \\
+created\_at & TIMESTAMP & Default NOW() \\
+updated\_at & TIMESTAMP & Auto-update \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Schema Tabel Products}
+\label{tab:schema_products}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Kolom} & \textbf{Tipe} & \textbf{Keterangan} \\
+\midrule
+id & UUID & Primary Key \\
+umkm\_id & UUID & Foreign Key ke users \\
+name & VARCHAR(255) & NOT NULL \\
+description & TEXT & Nullable \\
+original\_price & DECIMAL(10,2) & NOT NULL \\
+discount\_price & DECIMAL(10,2) & Nullable \\
+stock & INTEGER & NOT NULL \\
+unit & ENUM & pcs, kg, portion \\
+production\_time & TIMESTAMP & NOT NULL \\
+shelf\_life & INTEGER & Jam, NOT NULL \\
+packaging\_condition & ENUM & good, fair, poor \\
+storage\_temp & DECIMAL & Celsius \\
+fes\_score & INTEGER & 0-100 \\
+status & ENUM & available, sold, donated \\
+created\_at & TIMESTAMP & Default NOW() \\
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,56 +1,81 @@
-Pada bagian ini, tuliskan minimal \textbf{3000 kata} dan maksimal \textbf{4000 kata} dalam sub-bab atau beberapa paragraf. Tuliskan secara padat dan ringkas mengenai pemahaman atau penguasaan Anda terhadap teori atau metode yang relevan dan digunakan dalam penelitian.
+\subsection{Diferensiasi Solusi}
 
-Misalnya, jika dalam penelitian digunakan \textit{intelligent control system} dengan \textit{Fuzzy Logic Type II}, tuliskan bagian-bagian penting tentang \textit{Fuzzy Logic Type II} yang digunakan dalam \textit{intelligent control system}.
+ResQfood memiliki beberapa keunggulan diferensiasi yang membedakannya dari solusi \textit{food waste} yang sudah ada:
 
-\subsection{Teori Dasar}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Pendekatan Terpadu} — Berbeda dengan platform yang hanya fokus pada satu aspek (misalnya hanya penjualan diskon atau hanya donasi), ResQfood mengintegrasikan seluruh rantai nilai \textit{food waste} mulai dari prediksi produksi, penjualan surplus, hingga donasi otomatis.
+    
+    \item \textbf{Food Eligibility Assessment} — Sistem penilaian kelayakan makanan yang objektif dan transparan, memberikan kepastian bagi konsumen mengenai kualitas dan keamanan makanan yang dibeli.
+    
+    \item \textbf{Prediksi Produksi Berbasis Data} — Menggunakan algoritma \textit{machine learning} yang mempertimbangkan faktor cuaca, hari libur, dan pola historis untuk membantu UMKM membuat keputusan produksi yang lebih tepat.
+    
+    \item \textbf{Mekanisme Donasi Cerdas} — Sistem \textit{Food Rescue Score} yang secara otomatis merekomendasikan donasi saat makanan mulai menurun kelayakannya, memastikan tidak ada makanan layak konsumsi yang terbuang sia-sia.
+\end{enumerate}
 
-Jelaskan teori-teori dasar yang menjadi fondasi penelitian Anda\cite{Li2026Adaptive}. Pastikan penjelasan mencakup:
+\subsection{Keunggulan Teknis}
+
+\subsubsection{Algoritma Prediksi Produksi}
+ResQfood menggunakan kombinasi algoritma \textit{time series forecasting} dan \textit{regression analysis} yang dilatih dengan data historis penjualan UMKM lokal. Algoritma ini mempertimbangkan:
+
 \begin{itemize}[leftmargin=*]
-    \item Definisi dan konsep fundamental
-    \item Prinsip-prinsip utama
-    \item Rumusan matematis yang relevan
-    \item Asumsi-asumsi yang digunakan
+    \item Pola penjualan harian dan mingguan
+    \item Pengaruh cuaca terhadap permintaan
+    \item Efek hari libur dan hari besar
+    \item Tren musiman dan perubahan perilaku konsumen
 \end{itemize}
 
-Contoh penulisan rumus matematika menggunakan \LaTeX. Persamaan \eqref{eq:entropy} menunjukkan rumus \textit{Shannon Entropy} untuk menghitung ketidakpastian informasi:
+\subsubsection{Food Eligibility Score}
+Sistem ini menggunakan model \textit{scoring} berbasis aturan yang mempertimbangkan:
 
-\begin{equation}
-    H(X) = - \sum_{i=1}^{n} P(x_i) \log_2 P(x_i)
-    \label{eq:entropy}
-\end{equation}
-\myequations{Shannon Entropy}
-
-Dimana $H(X)$ adalah entropi, $n$ adalah jumlah kemungkinan kejadian, dan $P(x_i)$ adalah probabilitas kejadian $i$.
-
-Contoh rumus lain adalah \textit{Euclidean Distance} pada Persamaan \eqref{eq:euclidean}:
-
-\begin{equation}
-    d(p,q) = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}
-    \label{eq:euclidean}
-\end{equation}
-\myequations{Euclidean Distance}
-
-
-\subsection{Metodologi Penelitian}
-
-Jelaskan metodologi penelitian yang akan digunakan, mencakup pendekatan penelitian, teknik pengumpulan data, dan analisis.
-
-\begin{figure}[htbp]
-    \centering
-    % Diagram alir penelitian
-    \includegraphics[width=0.6\textwidth]{figures/diagram-alir-penelitian.png}
-    \caption{Contoh Diagram Alir Penelitian (Dummy Figure)}
-    \label{fig:alur_penelitian}
-\end{figure}
-
-Setelah Gambar \ref{fig:alur_penelitian}, jelaskan langkah-langkah detailnya:
 \begin{itemize}[leftmargin=*]
-    \item Pendekatan penelitian
-    \item Teknik pengumpulan data
-    \item Metode analisis
-    \item Validasi dan verifikasi
+    \item Waktu produksi dan estimasi masa simpan
+    \item Kondisi kemasan dan suhu penyimpanan
+    \item Riwayat penanganan makanan
+    \item Kategori makanan dan karakteristik spesifik
 \end{itemize}
 
-\subsection{Alat dan Kerangka Kerja}
+\subsubsection{Dynamic Pricing Engine}
+Mesin penetapan harga dinamis yang mengoptimalkan:
 
-Jelaskan alat, kerangka kerja, atau infrastruktur yang mendukung penelitian Anda.
+\begin{itemize}[leftmargin=*]
+    \item Harga berdasarkan sisa waktu kelayakan
+    \item Elasticitas permintaan lokal
+    \item Harga kompetitor di area yang sama
+    \item Margin minimum yang menguntungkan UMKM
+\end{itemize}
+
+\subsection{Technology Stack yang Unik}
+
+Kombinasi teknologi yang digunakan dalam ResQfood memberikan keunggulan kompetitif:
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack ResQfood}
+\label{tab:tech_stack}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Komponen} & \textbf{Teknologi} & \textbf{Alasan Pemilihan} \\
+\midrule
+Frontend & React.js & Komponen reusable, performa tinggi \\
+Backend & Node.js + Express & asynchronous, cocok untuk real-time \\
+Database & PostgreSQL + Redis & ACID compliance + caching \\
+ML & Python + scikit-learn & Ekosistem ML yang mature \\
+Real-time & Socket.IO & Komunikasi dua arah \\
+Hosting & AWS / GCP & Skalabilitas dan reliability \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Moat (Penghalang Kompetisi)}
+
+ResQfood memiliki beberapa \textit{moat} yang melindungi posisi kompetitif:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Data Lokal} — Dataset penjualan UMKM kuliner Indonesia yang dikumpulkan dari mitra merupakan aset berharga yang sulit ditiru oleh kompetitor baru atau perusahaan besar.
+    
+    \item \textbf{Jaringan UMKM} — Hubungan langsung dengan UMKM kuliner lokal memberikan keunggulan dalam hal \textit{network effect} dan \textit{switching cost}.
+    
+    \item \textbf{Algoritma yang Dioptimasi} — Model \textit{machine learning} yang dilatih dengan data lokal memiliki akurasi yang lebih tinggi dibandingkan model generik.
+    
+    \item \textbf{Mekanisme Donasi} — Integrasi dengan jaringan donasi memberikan nilai tambah yang sulit ditiru oleh platform yang hanya fokus pada penjualan.
+\end{enumerate}

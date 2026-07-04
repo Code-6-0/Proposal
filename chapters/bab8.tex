@@ -1,0 +1,90 @@
+\subsection{Diagram Arsitektur Sistem}
+
+\begin{figure}[H]
+\centering
+% Placeholder untuk diagram
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}Diagram Use Case\\(Akan diganti dengan diagram aktual)\vspace{4cm}}}
+\caption{Use Case Diagram ResQfood}
+\label{fig:usecase}
+\end{figure}
+
+Terdapat tiga aktor utama dalam sistem ResQfood:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Customer} — Pengguna yang membeli makanan surplus, memberikan rating, dan melacak pesanan.
+    \item \textbf{UMKM} — Pengelola produk yang mengelola stok, menentukan harga, dan memproses pesanan.
+    \item \textbf{Admin} — Pengelola sistem yang memantau aktivitas, mengelola user, dan memverifikasi donasi.
+\end{enumerate}
+
+\subsection{ERD (Entity Relationship Diagram)}
+
+\begin{figure}[H]
+\centering
+% Placeholder untuk ERD
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}ERD ResQfood\\(Akan diganti dengan ERD aktual)\vspace{4cm}}}
+\caption{Entity Relationship Diagram ResQfood}
+\label{fig:erd}
+\end{figure}
+
+\subsubsection{Tabel Utama}
+
+\begin{table}[H]
+\centering
+\caption{Struktur Database ResQfood}
+\label{tab:database}
+\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Tabel} & \textbf{Deskripsi} \\
+\midrule
+users & Data pengguna (admin, UMKM, customer) \\
+products & Informasi produk makanan \\
+orders & Data transaksi pesanan \\
+order\_items & Detail item dalam pesanan \\
+food\_eligibility & Data kelayakan makanan \\
+reviews & Rating dan ulasan konsumen \\
+transactions & Log pembayaran \\
+donations & Data donasi makanan \\
+notifications & Notifikasi pengguna \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{API Design}
+
+Berikut adalah endpoint API utama yang digunakan dalam ResQfood:
+
+\begin{table}[H]
+\centering
+\caption{Endpoint API Utama}
+\label{tab:api}
+\small
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Deskripsi} \\
+\midrule
+POST & /api/auth/register & Registrasi pengguna baru \\
+POST & /api/auth/login & Login dan dapatkan token \\
+GET & /api/products & Dapatkan daftar produk \\
+POST & /api/products & Tambah produk baru (UMKM) \\
+PUT & /api/products/:id & Update produk \\
+DELETE & /api/products/:id & Hapus produk \\
+POST & /api/orders & Buat pesanan baru \\
+GET & /api/orders/:id & Dapatkan detail pesanan \\
+PUT & /api/orders/:id/status & Update status pesanan \\
+POST & /api/reviews & Tambah rating \& ulasan \\
+GET & /api/admin/dashboard & Dapatkan data dashboard \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Alur Data}
+
+Alur data utama dalam ResQfood:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Alur Penjualan} — UMKM $\rightarrow$ Upload Produk $\rightarrow$ Food Eligibility Assessment $\rightarrow$ Dynamic Pricing $\rightarrow$ Customer Browse $\rightarrow$ Checkout $\rightarrow$ Payment $\rightarrow$ Tracking $\rightarrow$ Delivery $\rightarrow$ Rating.
+    
+    \item \textbf{Alur Donasi} — Food Rescue Score Menurun $\rightarrow$ Rekomendasi Donasi $\rightarrow$ UMKM Setuju $\rightarrow$ Pilih Penerima $\rightarrow$ Donasi Terealisasi.
+    
+    \item \textbf{Alur Prediksi} — Data Historis $\rightarrow$ Analisis Pola $\rightarrow$ Prediksi Permintaan $\rightarrow$ Rekomendasi Produksi $\rightarrow$ UMKM Terima Rekomendasi.
+\end{enumerate}

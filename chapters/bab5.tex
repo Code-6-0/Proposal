@@ -1,0 +1,82 @@
+\subsection{Daftar Teknologi}
+
+Berikut adalah daftar lengkap teknologi yang digunakan dalam pengembangan ResQfood:
+
+\begin{table}[H]
+\centering
+\caption{Daftar Teknologi ResQfood}
+\label{tab:daftar_teknologi}
+\small
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Kategori} & \textbf{Teknologi} & \textbf{Versi} \\
+\midrule
+Bahasa Pemrograman & JavaScript, TypeScript & ES2024, 5.x \\
+Frontend Framework & React.js & 18.x \\
+Backend Framework & Node.js + Express & 20 LTS, 4.x \\
+Database & PostgreSQL, Redis & 16.x, 7.x \\
+ORM & Prisma & 5.x \\
+Authentication & JWT, bcrypt & - \\
+Real-time & Socket.IO & 4.x \\
+Machine Learning & Python, scikit-learn & 3.12, 1.4 \\
+API Design & RESTful API & - \\
+Version Control & Git, GitHub & - \\
+CI/CD & GitHub Actions & - \\
+Hosting & AWS / Vercel & - \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Alasan Pemilihan Teknologi}
+
+\subsubsection{React.js untuk Frontend}
+React.js dipilih sebagai \textit{frontend framework} karena:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Komponen Reusable} — Arsitektur berbasis komponen memungkinkan pembuatan UI yang konsisten dan mudah dipelihara.
+    \item \textbf{Performa Tinggi} — Virtual DOM memberikan performa yang optimal untuk aplikasi dengan banyak interaksi.
+    \item \textbf{Ekosistem Kaya} — Tersedia banyak library pendukung seperti React Router, Redux, dan Material-UI.
+    \item \textbf{Komunitas Besar} — Mudah menemukan dokumentasi, tutorial, dan solusi untuk berbagai masalah.
+\end{itemize}
+
+\subsubsection{Node.js + Express untuk Backend}
+Node.js dan Express dipilih karena:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Asynchronous} — Sangat cocok untuk aplikasi yang membutuhkan pemrosesan banyak request secara simultan.
+    \item \textbf{JavaScript Full-stack} — Penggunaan bahasa yang sama di frontend dan backend mempercepat pengembangan.
+    \item \textbf{Ringan dan Cepat} — Cocok untuk microservice dan API yang responsif.
+    \item \textbf{NPM Ecosystem} — Akses ke ribuan package yang sudah teruji.
+\end{itemize}
+
+\subsubsection{PostgreSQL + Redis}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{PostgreSQL} — Database relasional yang robust, mendukung ACID, dan memiliki fitur JSON untuk data semi-terstruktur.
+    \item \textbf{Redis} — In-memory database untuk caching, session management, dan real-time features.
+\end{itemize}
+
+\subsubsection{Python + scikit-learn untuk Machine Learning}
+Python dipilih untuk komponen \textit{machine learning} karena:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Ekosistem ML Terkaya} — scikit-learn, pandas, dan numpy menyediakan tools yang komprehensif untuk prediksi.
+    \item \textbf{Integrasi Mudah} — Dapat diintegrasikan dengan backend Node.js melalui API atau \textit{microservice}.
+    \item \textbf{Prototyping Cepat} — Memungkinkan eksperimen dan iterasi model dengan cepat.
+\end{itemize}
+
+\subsection{Arsitektur Teknologi}
+
+\begin{figure}[H]
+\centering
+% Placeholder untuk diagram arsitektur
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Diagram Arsitektur Sistem\\(Akan diganti dengan diagram aktual)\vspace{3cm}}}
+\caption{Arsitektur High-Level ResQfood}
+\label{fig:arsitektur}
+\end{figure}
+
+Alur komunikasi sistem:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Client Layer} — Browser pengguna mengakses React.js application.
+    \item \textbf{API Gateway} — Request diteruskan ke Express.js backend.
+    \item \textbf{Application Layer} — Backend memproses business logic, autentikasi, dan validasi data.
+    \item \textbf{Data Layer} — PostgreSQL menyimpan data persisten, Redis menyimpan cache dan session.
+    \item \textbf{ML Service} — Python microservice menangani prediksi produksi dan analitik.
+    \item \textbf{Real-time Layer} — Socket.IO menangani notifikasi dan update status secara real-time.
+\end{enumerate}

@@ -1,0 +1,115 @@
+\subsection{Daftar Fitur yang Diimplementasikan}
+
+Berikut adalah daftar fitur utama ResQfood beserta status implementasinya:
+
+\begin{table}[H]
+\centering
+\caption{Status Implementasi Fitur}
+\label{tab:implementasi}
+\small
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Modul} & \textbf{Fitur} & \textbf{Status} \\
+\midrule
+\multirow{4}{*}{Authentication} & Registrasi & Completed \\
+& Login/Logout & Completed \\
+& Forgot Password & Completed \\
+& Role-based Access & Completed \\
+\addlinespace
+\multirow{4}{*}{Admin} & Dashboard Statistik & Completed \\
+& Manajemen User & Completed \\
+& Monitoring Produk & Completed \\
+& Verifikasi Donasi & Partial \\
+\addlinespace
+\multirow{5}{*}{UMKM} & Kelola Produk & Completed \\
+& Food Eligibility Assessment & Completed \\
+& Food Eligibility Score & Completed \\
+& Dynamic Pricing & Completed \\
+& Riwayat Penjualan & Completed \\
+\addlinespace
+\multirow{4}{*}{Customer} & Marketplace & Completed \\
+& Checkout \& Payment & Completed \\
+& Tracking Pesanan & Completed \\
+& Rating \& Ulasan & Completed \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Screenshot Antarmuka}
+
+\subsubsection{Halaman Marketplace (Customer)}
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Marketplace\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
+\caption{Tampilan Marketplace untuk Customer}
+\label{fig:marketplace}
+\end{figure}
+
+Halaman marketplace menampilkan daftar makanan surplus dari UMKM terdekat dengan pengguna. Setiap produk menampilkan informasi harga asli, harga diskon, sisa waktu kelayakan, dan \textit{Food Trust Index}.
+
+\subsubsection{Halaman Food Eligibility Assessment (UMKM)}
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Food Eligibility\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
+\caption{Tampilan Food Eligibility Assessment}
+\label{fig:food_eligibility}
+\end{figure}
+
+UMKM mengisi form penilaian kelayakan makanan yang mencakup waktu produksi, estimasi masa simpan, kondisi kemasan, dan suhu penyimpanan. Sistem kemudian menghitung \textit{Food Eligibility Score} secara otomatis.
+
+\subsubsection{Halaman Dashboard Admin}
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Dashboard Admin\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
+\caption{Tampilan Dashboard Admin}
+\label{fig:dashboard_admin}
+\end{figure}
+
+Dashboard admin menampilkan ringkasan aktivitas platform meliputi jumlah UMKM aktif, total transaksi, volume \textit{food waste} yang berhasil diselamatkan, dan statistik donasi.
+
+\subsection{Penjelasan Teknis Fitur Utama}
+
+\subsubsection{Food Eligibility Assessment}
+Sistem penilaian kelayakan makanan menggunakan model \textit{weighted scoring} dengan formula:
+
+\begin{equation}
+    FES = w_1 \cdot T_{prod} + w_2 \cdot S_{simpan} + w_3 \cdot K_{kemasan} + w_4 \cdot T_{suhu}
+    \label{eq:fes}
+\end{equation}
+
+Dimana:
+\begin{itemize}[leftmargin=*]
+    \item $FES$ = Food Eligibility Score (0-100)
+    \item $T_{prod}$ = Skor berdasarkan waktu produksi
+    \item $S_{simpan}$ = Skor berdasarkan sisa masa simpan
+    \item $K_{kemasan}$ = Skor berdasarkan kondisi kemasan
+    \item $T_{suhu}$ = Skor berdasarkan suhu penyimpanan
+    \item $w_1, w_2, w_3, w_4$ = Bobot masing-masing komponen
+\end{itemize}
+
+\subsubsection{Dynamic Pricing Engine}
+Algoritma penetapan harga dinamis mempertimbangkan:
+
+\begin{equation}
+    P_{diskon} = P_{asal} \cdot \left(1 - \alpha \cdot \frac{T_{max} - T_{sisa}}{T_{max}}\right) \cdot \beta_{permintaan}
+    \label{eq:dynamic_pricing}
+\end{equation}
+
+Dimana:
+\begin{itemize}[leftmargin=*]
+    \item $P_{diskon}$ = Harga diskon yang ditampilkan
+    \item $P_{asal}$ = Harga asli produk
+    \item $\alpha$ = Faktor diskon maksimal (0.5 = 50\%)
+    \item $T_{max}$ = Masa simpan maksimal
+    \item $T_{sisa}$ = Sisa waktu kelayakan
+    \item $\beta_{permintaan}$ = Faktor permintaan lokal
+\end{itemize}
+
+\subsection{Integrasi Sistem}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Frontend-Backend} — Komunikasi via RESTful API dengan format JSON
+    \item \textbf{Backend-Database} — Menggunakan Prisma ORM untuk akses PostgreSQL
+    \item \textbf{Backend-ML Service} — HTTP request ke Python microservice untuk prediksi
+    \item \textbf{Real-time} — Socket.IO untuk notifikasi dan update status pesanan
+\end{itemize}

@@ -1,9 +1,8 @@
-% Template LaTeX untuk Ujian Kualifikasi
-% Program Studi Doktor Informatika
-% Universitas Telkom
+% Proposal CODE 6.0 - Software Development
+% Aplikasi Manajemen Food Waste
 
 % Document Class
-\documentclass[12pt,a4paper,english]{article}
+\documentclass[12pt,a4paper,indonesian]{article}
 
 % Packages
 \usepackage[utf8]{inputenc}
@@ -13,9 +12,9 @@
 \usepackage{helvet}   % Helvetica for sans-serif
 \usepackage{amsmath}
 \usepackage{babel}
-\babelprovide[import, main]{english}
-\babelprovide[import]{indonesian}
-\selectlanguage{english}
+\babelprovide[import, main]{indonesian}
+\babelprovide[import]{english}
+\selectlanguage{indonesian}
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{titlesec}
@@ -30,28 +29,30 @@
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{longtable}
-\usepackage{ragged2e}  % For better text justification in bibliography
-\usepackage{csquotes}  % Recommended by biblatex for quotation handling
+\usepackage{ragged2e}
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage{float}
 
-% Page Setup
+% Page Setup - sesuai template: minimal 2.5cm semua sisi
 \geometry{
-    top=3cm,
-    bottom=3cm,
-    left=4cm,
-    right=3cm
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2.5cm
 }
 
 % Title Formatting
 \titleformat{\section}
-    {\normalfont\fontsize{16}{19}\bfseries\centering}{\thesection}{1em}{}
-    
+    {\normalfont\fontsize{14}{17}\bfseries\centering}{\thesection}{1em}{}
+
 \titleformat{\subsection}
     {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
 
 \titleformat{\subsubsection}
-    {\normalfont\fontsize{12}{14}\normalfont}{\thesubsubsection}{1em}{}
+    {\normalfont\fontsize{11}{13}\bfseries}{\thesubsubsection}{1em}{}
 
-% Spacing
+% Spacing - 1.5 sesuai template
 \onehalfspacing
 
 % Header/Footer
@@ -66,153 +67,49 @@
     linkcolor=black,
     citecolor=black,
     filecolor=black,
-    urlcolor=black,
+    urlcolor=blue,
 }
 
 % Table of Contents customization
 \renewcommand{\contentsname}{DAFTAR ISI}
-\renewcommand{\cfttoctitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cfttoctitlefont}{\hfill\fontsize{14}{17}\selectfont\bfseries}
 \renewcommand{\cftaftertoctitle}{\hfill}
 
 % List of Tables customization
 \renewcommand{\listtablename}{DAFTAR TABEL}
-\renewcommand{\cftlottitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftlottitlefont}{\hfill\fontsize{14}{17}\selectfont\bfseries}
 \renewcommand{\cftafterlottitle}{\hfill}
 
 % List of Figures customization
 \renewcommand{\listfigurename}{DAFTAR GAMBAR}
-\renewcommand{\cftloftitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftloftitlefont}{\hfill\fontsize{14}{17}\selectfont\bfseries}
 \renewcommand{\cftafterloftitle}{\hfill}
-
-% List of Equations setup
-\newcommand{\listequationsname}{DAFTAR RUMUS}
-\newlistof{myequations}{equ}{\listequationsname}
-\newcommand{\myequations}[1]{%
-\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
-\renewcommand{\cftequtitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
-\renewcommand{\cftafterequtitle}{\hfill}
-\setlength{\cftmyequationsindent}{0pt}
-
-% Redefine \listofequations to use the custom list
-\newcommand{\listofequations}{\listofmyequations}
 
 % Subsection numbering format
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
-% Custom Commands (use @ internal commands)
-\makeatletter
-\newcommand{\myTitle}[1]{\def\@myTitle{#1}}
-\newcommand{\myName}[1]{\def\@myName{#1}}
-\newcommand{\myNIM}[1]{\def\@myNIM{#1}}
-\newcommand{\myYear}[1]{\def\@myYear{#1}}
-
-% Initialize default values
-\def\@myTitle{Judul Penelitian}
-\def\@myNIM{303012510004}
-\def\@myName{Rolly Maulana Awangga}
-\def\@myYear{Tahun}
-
-\renewcommand{\maketitle}{
-    \begin{titlepage}
-        \centering
-        \vspace*{0.5cm}
-        
-        % Judul Penelitian (bagian atas)
-        {\fontsize{16}{20}\selectfont
-        \textbf{Judul Laporan yang Akan di Laporkan}\par}
-        
-        \vspace{1.5cm}
-        
-        % Tahap Ujian Kualifikasi
-        {\fontsize{12}{14}\selectfont
-        \textbf{Proyek / Internship}\par}
-        
-        \vspace{1.5cm}
-        
-        % NIM dan Nama
-        {\fontsize{12}{14}\selectfont
-        \textbf{\@myNIM}\par
-        \textbf{\@myName}\par}
-        
-        \vspace{1.5cm}
-        \vspace{1.5cm}
-        \vspace{1.5cm}
-     
-        
-        % Logo
-        \IfFileExists{logo.png}{
-            \includegraphics[width=0.5\textwidth]{logo.png}
-        }{
-            {\fontsize{16}{19}\bfseries Logo\par}
-        }
-        
-        \vfill
-        
-        % Program Studi dan Informasi
-        {\fontsize{16}{19}\selectfont
-        \textbf{Program Studi Sarjana Terapan Teknik Informatika}\par
-        \textbf{Sekolah Teknologi Informasi}\par
-        \textbf{Universitas Logistik dan Bisnis Internasional}\par
-        \textbf{Bandung}\par
-        \textbf{2026}\par}
-        
-    \end{titlepage}
-    \newpage
-}
-\makeatother
-
-% SOTA Table Environment
-\newenvironment{sototable}
-    {\begin{table}[htbp]
-    \centering
-    \caption{State-of-the-Art Penelitian}
-    \label{tab:sota}}
-    {\end{table}}
-
-% Word Count Environments
-\newenvironment{summary}
-    {}
-    {}
-
-\newenvironment{background}
-    {}
-    {}
-
-\newenvironment{literaturereview}
-    {}
-    {}
-
-\newenvironment{researchgap}
-    {}
-    {}
-
-\newenvironment{novelty}
-    {}
-    {}
-
-% Bibliography Style - APA-like with BibTeX
+% Bibliography Style
 \usepackage[
-    backend=biber,    % Menggunakan Biber (lebih modern dari BibTeX)
-    style=authoryear, % Author-year citation style (APA-like)
-    sorting=nyt,      % Sort by name, year, title
-    maxbibnames=99,   % Tampilkan semua nama penulis
-    dashed=false,     % Jangan gunakan dash untuk author yang sama
-    url=false,        % Jangan tampilkan URL
-    doi=true,         % Tampilkan DOI
+    backend=biber,
+    style=authoryear,
+    sorting=nyt,
+    maxbibnames=99,
+    dashed=false,
+    url=false,
+    doi=true,
 ]{biblatex}
 
-\urlstyle{same} % Samakan font URL/DOI dengan teks utama
+\urlstyle{same}
 
 \addbibresource{references.bib}
 \addbibresource{include.bib}
-%\addbibresource{visualdecoding.bib} % Uncomment jika ingin menggunakan file bib tambahan
 
-% Make \cite behave like \parencite (with parentheses)
+% Make \cite behave like \parencite
 \let\cite\parencite
 
 % Custom citation formatting
-\renewcommand*{\finalnamedelim}{\addspace\&\addspace}  % Ubah "and" jadi "&"
-\renewcommand*{\nameyeardelim}{\addcomma\space}        % Tambahkan koma setelah author
+\renewcommand*{\finalnamedelim}{\addspace\&\addspace}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
 
 % Remove "In:" from bibliography
 \renewbibmacro{in:}{}
@@ -228,22 +125,91 @@
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
 
-% Set bibliography to use ragged right alignment untuk mencegah overfull
+% Set bibliography to use ragged right alignment
 \emergencystretch=1em
 \appto{\bibsetup}{\sloppy\RaggedRight}
 
+% Custom Commands
+\makeatletter
+\newcommand{\myTitle}[1]{\def\@myTitle{#1}}
+\newcommand{\myName}[1]{\def\@myName{#1}}
+\newcommand{\myNIM}[1]{\def\@myNIM{#1}}
+\newcommand{\myTeam}[1]{\def\@myTeam{#1}}
+\newcommand{\myUniversity}[1]{\def\@myUniversity{#1}}
+\newcommand{\myStudyProgram}[1]{\def\@myStudyProgram{#1}}
+\newcommand{\myYear}[1]{\def\@myYear{#1}}
 
+% Initialize default values
+\def\@myTitle{ResQfood: Platform Manajemen Food Waste Berbasis Web untuk UMKM Kuliner}
+\def\@myTeam{Tim XYZ}
+\def\@myNIM{NIM Anggota 1, NIM Anggota 2, NIM Anggota 3, NIM Anggota 4, NIM Anggota 5}
+\def\@myName{Nama Anggota 1, Nama Anggota 2, Nama Anggota 3, Nama Anggota 4, Nama Anggota 5}
+\def\@myUniversity{Universitas ABC}
+\def\@myStudyProgram{Program Studi Teknik Informatika}
+\def\@myYear{2026}
 
-% Set document metadata
-\myTitle{Judul Penelitian Anda}
-\myNIM{303012510004}
-\myName{Rolly Maulana Awangga}
-\myYear{2026}
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1cm}
+        
+        % Judul Aplikasi
+        {\fontsize{16}{20}\selectfont
+        \textbf{RESQFOOD}\par}
+        
+        \vspace{0.5cm}
+        
+        {\fontsize{12}{14}\selectfont
+        \textbf{Platform Manajemen Food Waste Berbasis Web}\\[0.3cm]
+        \textbf{untuk UMKM Kuliner}\par}
+        
+        \vspace{2cm}
+        
+        % Nama Tim
+        {\fontsize{12}{14}\selectfont
+        \textbf{Kelompok: \@myTeam}\par}
+        
+        \vspace{1cm}
+        
+        % Anggota Tim
+        {\fontsize{11}{13}\selectfont
+        \@myName\par}
+        
+        \vspace{0.5cm}
+        
+        {\fontsize{11}{13}\selectfont
+        \@myNIM\par}
+        
+        \vspace{2cm}
+        
+        % Logo
+        \IfFileExists{logo.png}{
+            \includegraphics[width=0.3\textwidth]{logo.png}
+        }{
+            % Placeholder jika logo belum ada
+        }
+        
+        \vfill
+        
+        % Informasi Universitas
+        {\fontsize{12}{14}\selectfont
+        \textbf{\@myStudyProgram}\par
+        \textbf{\@myUniversity}\par}
+        
+        \vspace{0.5cm}
+        
+        {\fontsize{14}{17}\selectfont
+        \textbf{\@myYear}\par}
+        
+    \end{titlepage}
+    \newpage
+}
+\makeatother
 
 % Beginning of Document
 \begin{document}
 
-% Force TOC title to be uppercase (fix for babel override)
+% Force TOC title to be uppercase
 \renewcommand{\contentsname}{DAFTAR ISI}
 \renewcommand{\listtablename}{DAFTAR TABEL}
 \renewcommand{\listfigurename}{DAFTAR GAMBAR}
@@ -275,65 +241,114 @@
 \listoffigures
 \clearpage
 
-% DAFTAR RUMUS
-\phantomsection
-\addcontentsline{toc}{section}{DAFTAR RUMUS}
-\listofequations
-\clearpage
+% ==================== BAGIAN 1: COVER ====================
+% (Cover sudah ditangani oleh \maketitle di atas)
 
-% RINGKASAN
+% ==================== BAGIAN 2: ABSTRAK ====================
 \clearpage
-\section*{RINGKASAN}
-\phantomsection
-\addcontentsline{toc}{section}{RINGKASAN}
-\input{chapters/ringkasan}
-
-\clearpage
-
-% BAB 1 - PENDAHULUAN
 \setcounter{section}{0}
-\pagenumbering{arabic} % Kembali ke angka Arab mulai dari Bab 1
-\setcounter{page}{1}   % Reset halaman ke 1
-\section*{BAB 1 \\ PENDAHULUAN}
-\phantomsection
-\addcontentsline{toc}{section}{BAB 1 PENDAHULUAN}
-\refstepcounter{section}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
+\section*{ABSTRAK}
+\phantomsection
+\addcontentsline{toc}{section}{ABSTRAK}
+\input{chapters/abstrak}
+\clearpage
+
+% ==================== BAGIAN 3: LATAR BELAKANG & URGENSI ====================
+\section*{LATAR BELAKANG \& URGENSI MASALAH}
+\phantomsection
+\addcontentsline{toc}{section}{LATAR BELAKANG \& URGENSI MASALAH}
 \input{chapters/bab1}
-
 \clearpage
 
-% BAB 2 - LITERATURE REVIEW
-\section*{BAB 2 \\ LITERATURE REVIEW}
+% ==================== BAGIAN 4: TUJUAN, MANFAAT, & DAMPAK ====================
+\section*{TUJUAN, MANFAAT, \& DAMPAK}
 \phantomsection
-\addcontentsline{toc}{section}{BAB 2 LITERATURE REVIEW}
-\refstepcounter{section}
-
+\addcontentsline{toc}{section}{TUJUAN, MANFAAT, \& DAMPAK}
 \input{chapters/bab2}
-
 \clearpage
 
-% BAB 3 - TEORI / METODE TERKAIT
-\section*{BAB 3 \\ TEORI / METODE TERKAIT}
+% ==================== BAGIAN 5: NILAI INOVASI & ORISINALITAS ====================
+\section*{NILAI INOVASI \& ORISINALITAS}
 \phantomsection
-\addcontentsline{toc}{section}{BAB 3 TEORI / METODE TERKAIT}
-\refstepcounter{section}
-
+\addcontentsline{toc}{section}{NILAI INOVASI \& ORISINALITAS}
 \input{chapters/bab3}
-
-% DAFTAR PUSTAKA
 \clearpage
-\section*{DAFTAR PUSTAKA}
+
+% ==================== BAGIAN 6: ANALISIS KOMPETITOR & BUSINESS VIABILITY ====================
+\section*{ANALISIS KOMPETITOR \& BUSINESS VIABILITY}
 \phantomsection
-\addcontentsline{toc}{section}{DAFTAR PUSTAKA}
-
-\printbibliography[heading=none]
-
+\addcontentsline{toc}{section}{ANALISIS KOMPETITOR \& BUSINESS VIABILITY}
+\input{chapters/bab4}
 \clearpage
 
+% ==================== BAGIAN 7: TEKNOLOGI YANG DIGUNAKAN ====================
+\section*{TEKNOLOGI YANG DIGUNAKAN}
+\phantomsection
+\addcontentsline{toc}{section}{TEKNOLOGI YANG DIGUNAKAN}
+\input{chapters/bab5}
+\clearpage
 
+% ==================== BAGIAN 8: BATASAN PERANGKAT LUNAK ====================
+\section*{BATASAN PERANGKAT LUNAK}
+\phantomsection
+\addcontentsline{toc}{section}{BATASAN PERANGKAT LUNAK}
+\input{chapters/bab6}
+\clearpage
+
+% ==================== BAGIAN 9: METODOLOGI PENGEMBANGAN ====================
+\section*{METODOLOGI PENGEMBANGAN}
+\phantomsection
+\addcontentsline{toc}{section}{METODOLOGI PENGEMBANGAN}
+\input{chapters/bab7}
+\clearpage
+
+% ==================== BAGIAN 10: ARSITEKTUR SISTEM & DESAIN ====================
+\section*{ARSITEKTUR SISTEM \& DESAIN}
+\phantomsection
+\addcontentsline{toc}{section}{ARSITEKTUR SISTEM \& DESAIN}
+\input{chapters/bab8}
+\clearpage
+
+% ==================== BAGIAN 11: IMPLEMENTASI TEKNIS ====================
+\section*{IMPLEMENTASI TEKNIS}
+\phantomsection
+\addcontentsline{toc}{section}{IMPLEMENTASI TEKNIS}
+\input{chapters/bab9}
+\clearpage
+
+% ==================== BAGIAN 12: ANALISIS UI/UX & ACCESSIBILITY ====================
+\section*{ANALISIS UI/UX \& ACCESSIBILITY}
+\phantomsection
+\addcontentsline{toc}{section}{ANALISIS UI/UX \& ACCESSIBILITY}
+\input{chapters/bab10}
+\clearpage
+
+% ==================== BAGIAN 13: PENGUJIAN (TESTING) ====================
+\section*{PENGUJIAN (TESTING)}
+\phantomsection
+\addcontentsline{toc}{section}{PENGUJIAN (TESTING)}
+\input{chapters/bab11}
+\clearpage
+
+% ==================== BAGIAN 14: DOKUMENTASI PENGGUNAAN ====================
+\section*{DOKUMENTASI PENGGUNAAN}
+\phantomsection
+\addcontentsline{toc}{section}{DOKUMENTASI PENGGUNAAN}
+\input{chapters/bab12}
+\clearpage
+
+% ==================== BAGIAN 15: DAFTAR PUSTAKA & REFERENSI ====================
+\section*{DAFTAR PUSTAKA \& REFERENSI}
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR PUSTAKA \& REFERENSI}
+\input{chapters/daftar_pustaka}
+\clearpage
+
+% ==================== LAMPIRAN ====================
 \input{chapters/lampiran}
-
 \clearpage
 
 \end{document}
