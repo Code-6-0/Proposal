@@ -6,11 +6,11 @@
 \centering
 % Placeholder untuk diagram
 \fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}Diagram Use Case\\(Akan diganti dengan diagram aktual)\vspace{4cm}}}
-\caption{Use Case Diagram ResQfood}
+\caption{Use Case Diagram Savora}
 \label{fig:usecase}
 \end{figure}
 
-Terdapat tiga aktor utama dalam sistem ResQfood:
+Terdapat tiga aktor utama dalam sistem Savora:
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Customer} — Pengguna yang membeli makanan surplus, memberikan rating, dan melacak pesanan.
     \item \textbf{UMKM} — Pengelola produk yang mengelola stok, menentukan harga, dan memproses pesanan.
@@ -22,8 +22,8 @@ Terdapat tiga aktor utama dalam sistem ResQfood:
 \begin{figure}[H]
 \centering
 % Placeholder untuk ERD
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}ERD ResQfood\\(Akan diganti dengan ERD aktual)\vspace{4cm}}}
-\caption{Entity Relationship Diagram ResQfood}
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}ERD Savora\\(Akan diganti dengan ERD aktual)\vspace{4cm}}}
+\caption{Entity Relationship Diagram Savora}
 \label{fig:erd}
 \end{figure}
 
@@ -31,7 +31,7 @@ Terdapat tiga aktor utama dalam sistem ResQfood:
 
 \begin{table}[H]
 \centering
-\caption{Struktur Database ResQfood}
+\caption{Struktur Database Savora}
 \label{tab:database}
 \small
 \begin{tabularx}{\textwidth}{lX}
@@ -53,7 +53,7 @@ notifications & Notifikasi pengguna \\
 
 \subsection{API Design}
 
-Berikut adalah endpoint API utama yang digunakan dalam ResQfood:
+Berikut adalah endpoint API utama yang digunakan dalam Savora:
 
 \begin{table}[H]
 \centering
@@ -81,7 +81,7 @@ GET & /api/admin/dashboard & Dapatkan data dashboard \\
 
 \subsection{Alur Data}
 
-Alur data utama dalam ResQfood:
+Alur data utama dalam Savora:
 
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Alur Penjualan} — UMKM $\rightarrow$ Upload Produk $\rightarrow$ Food Eligibility Assessment $\rightarrow$ Dynamic Pricing $\rightarrow$ Customer Browse $\rightarrow$ Checkout $\rightarrow$ Payment $\rightarrow$ Tracking $\rightarrow$ Delivery $\rightarrow$ Rating.

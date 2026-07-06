@@ -2,7 +2,7 @@
 
 \subsection{Rencana Implementasi Fitur}
 
-Berikut adalah daftar fitur utama ResQfood yang akan diimplementasikan:
+Berikut adalah daftar fitur utama Savora yang akan diimplementasikan:
 
 \begin{table}[H]
 \centering
@@ -74,60 +74,10 @@ Dashboard admin akan menampilkan ringkasan aktivitas platform:
 \subsection{Spesifikasi Teknis Fitur Utama}
 
 \subsubsection{Food Eligibility Score (FES)}
-Sistem penilaian kelayakan makanan menggunakan model \textit{weighted scoring} dengan formula:
-
-\begin{equation}
-    FES = w_1 \cdot T_{prod} + w_2 \cdot S_{simpan} + w_3 \cdot K_{kemasan} + w_4 \cdot T_{suhu}
-    \label{eq:fes}
-\end{equation}
-
-Dimana:
-\begin{itemize}[leftmargin=*]
-    \item $FES$ = Food Eligibility Score (0-100)
-    \item $T_{prod}$ = Skor berdasarkan waktu produksi
-    \item $S_{simpan}$ = Skor berdasarkan sisa masa simpan
-    \item $K_{kemasan}$ = Skor berdasarkan kondisi kemasan
-    \item $T_{suhu}$ = Skor berdasarkan suhu penyimpanan
-    \item $w_1, w_2, w_3, w_4$ = Bobot masing-masing komponen
-\end{itemize}
-
-\textbf{Contoh Perhitungan:}
-\begin{itemize}[leftmargin=*]
-    \item Bobot: $w_1 = 0.3$, $w_2 = 0.4$, $w_3 = 0.2$, $w_4 = 0.1$
-    \item Produk baru (8 jam): $T_{prod} = 90$
-    \item Sisa 16 jam dari 24 jam: $S_{simpan} = 67$
-    \item Kemasan baik: $K_{kemasan} = 100$
-    \item Suhu 4°C (ideal): $T_{suhu} = 100$
-    \item $FES = 0.3(90) + 0.4(67) + 0.2(100) + 0.1(100) = 83.8$
-\end{itemize}
+Sistem penilaian kelayakan makanan menggunakan model \textit{weighted scoring} yang mempertimbangkan waktu produksi, sisa masa simpan, kondisi kemasan, dan suhu penyimpanan untuk menghasilkan skor 0-100.
 
 \subsubsection{Dynamic Pricing Engine}
-Algoritma penetapan harga dinamis akan mempertimbangkan:
-
-\begin{equation}
-    P_{diskon} = P_{asal} \cdot \left(1 - \alpha \cdot \frac{T_{max} - T_{sisa}}{T_{max}}\right) \cdot \beta_{permintaan}
-    \label{eq:dynamic_pricing}
-\end{equation}
-
-Dimana:
-\begin{itemize}[leftmargin=*]
-    \item $P_{diskon}$ = Harga diskon yang direkomendasikan
-    \item $P_{asal}$ = Harga asli produk
-    \item $\alpha$ = Faktor diskon maksimal (0.5 = 50\%)
-    \item $T_{max}$ = Masa simpan maksimal
-    \item $T_{sisa}$ = Sisa waktu kelayakan
-    \item $\beta_{permintaan}$ = Faktor permintaan lokal (0.8-1.2)
-\end{itemize}
-
-\textbf{Contoh Perhitungan:}
-\begin{itemize}[leftmargin=*]
-    \item Harga asli: Rp 50.000
-    \item Masa simpan maksimal: 24 jam
-    \item Sisa waktu: 6 jam
-    \item Diskon maksimal: 50\% ($\alpha = 0.5$)
-    \item Permintaan normal: $\beta = 1.0$
-    \item $P_{diskon} = 50000 \cdot (1 - 0.5 \cdot \frac{24-6}{24}) \cdot 1.0 = 50000 \cdot 0.625 = Rp 31.250$
-\end{itemize}
+Algoritma penetapan harga dinamis yang mempertimbangkan sisa waktu kelayakan produk dan kondisi permintaan pasar untuk mengoptimalkan harga jual.
 
 \subsection{Arsitektur Sistem}
 
@@ -166,7 +116,7 @@ POST & /api/reviews & Tambah review \\
 
 \begin{table}[H]
 \centering
-\caption{Technology Stack ResQfood}
+\caption{Technology Stack Savora}
 \label{tab:tech_stack_implementation}
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
