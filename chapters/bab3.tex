@@ -1,28 +1,20 @@
+\section{DIFERENSIASI DAN ANALISIS PASAR}
+
 \subsection{Diferensiasi Solusi}
 
 ResQfood memiliki beberapa keunggulan diferensiasi yang membedakannya dari solusi \textit{food waste} yang sudah ada:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Pendekatan Terpadu} — Berbeda dengan platform yang hanya fokus pada satu aspek (misalnya hanya penjualan diskon atau hanya donasi), ResQfood mengintegrasikan seluruh rantai nilai \textit{food waste} mulai dari prediksi produksi, penjualan surplus, hingga donasi otomatis.
+    \item \textbf{Pendekatan Terpadu} — Berbeda dengan platform yang hanya fokus pada satu aspek (misalnya hanya penjualan diskon atau hanya donasi), ResQfood mengintegrasikan seluruh rantai nilai \textit{food waste} mulai dari penilaian kelayakan makanan, penjualan surplus dengan harga dinamis, hingga pelacakan dampak lingkungan \cite{kusumawati2025mobile}\cite{mobilefoodwaste2024review}.
     
-    \item \textbf{Food Eligibility Assessment} — Sistem penilaian kelayakan makanan yang objektif dan transparan, memberikan kepastian bagi konsumen mengenai kualitas dan keamanan makanan yang dibeli.
+    \item \textbf{Food Eligibility Assessment} — Sistem penilaian kelayakan makanan yang objektif dan transparan, memberikan kepastian bagi konsumen mengenai kualitas dan keamanan makanan yang dibeli. Menggunakan \textit{weighted scoring algorithm} berbasis 4 parameter utama.
     
-    \item \textbf{Prediksi Produksi Berbasis Data} — Menggunakan algoritma \textit{machine learning} yang mempertimbangkan faktor cuaca, hari libur, dan pola historis untuk membantu UMKM membuat keputusan produksi yang lebih tepat.
+    \item \textbf{Dynamic Pricing Engine} — Mesin penetapan harga dinamis yang mengoptimalkan harga berdasarkan sisa waktu kelayakan, permintaan pasar, dan margin UMKM \cite{qlearning2026pricing}\cite{kayikci2024iot}, memaksimalkan peluang penjualan sebelum makanan kadaluarsa.
     
-    \item \textbf{Mekanisme Donasi Cerdas} — Sistem \textit{Food Rescue Score} yang secara otomatis merekomendasikan donasi saat makanan mulai menurun kelayakannya, memastikan tidak ada makanan layak konsumsi yang terbuang sia-sia.
+    \item \textbf{Transparansi \& Trust Building} — Sistem \textit{Food Trust Index} yang menampilkan rating dan ulasan konsumen terhadap UMKM, serta \textit{Carbon Impact Tracking} yang menunjukkan dampak positif setiap pembelian terhadap lingkungan.
 \end{enumerate}
 
 \subsection{Keunggulan Teknis}
-
-\subsubsection{Algoritma Prediksi Produksi}
-ResQfood menggunakan kombinasi algoritma \textit{time series forecasting} dan \textit{regression analysis} yang dilatih dengan data historis penjualan UMKM lokal. Algoritma ini mempertimbangkan:
-
-\begin{itemize}[leftmargin=*]
-    \item Pola penjualan harian dan mingguan
-    \item Pengaruh cuaca terhadap permintaan
-    \item Efek hari libur dan hari besar
-    \item Tren musiman dan perubahan perilaku konsumen
-\end{itemize}
 
 \subsubsection{Food Eligibility Score}
 Sistem ini menggunakan model \textit{scoring} berbasis aturan yang mempertimbangkan:

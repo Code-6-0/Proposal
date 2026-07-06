@@ -1,119 +1,195 @@
-\subsection{Jenis Testing yang Dilakukan}
+\section{RENCANA STRATEGI PENGUJIAN}
 
-ResQfood menjalani berbagai jenis pengujian untuk memastikan kualitas dan keandalan aplikasi:
+\subsection{Strategi Pengujian}
+
+ResQfood akan menjalani berbagai jenis pengujian untuk memastikan kualitas aplikasi. Berikut adalah rencana testing yang akan diimplementasikan:
 
 \begin{table}[H]
 \centering
-\caption{Jenis Pengujian ResQfood}
+\caption{Jenis Pengujian yang Akan Dilakukan}
 \label{tab:testing}
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
-\textbf{Jenis Testing} & \textbf{Deskripsi} & \textbf{Tools} \\
+\textbf{Jenis Testing} & \textbf{Deskripsi} & \textbf{Tools yang Akan Digunakan} \\
 \midrule
-Unit Testing & Pengujian fungsi individual & Jest, Vitest \\
-Integration Testing & Pengujian integrasi antar modul & Jest, Supertest \\
-API Testing & Pengujian endpoint API & Postman, Supertest \\
-UI Testing & Pengujian antarmuka pengguna & Cypress \\
+Unit Testing & Pengujian fungsi individual & Jest atau Vitest \\
+Integration Testing & Pengujian integrasi antar modul & Jest + Supertest \\
+API Testing & Pengujian endpoint API & Postman atau Supertest \\
+UI Testing & Pengujian antarmuka pengguna & Cypress atau Playwright \\
 Usability Testing & Pengujian kemudahan penggunaan & Manual testing \\
-Performance Testing & Pengujian performa dan beban & Artillery \\
-Security Testing & Pengujian keamanan dasar & OWASP ZAP \\
+Performance Testing & Pengujian performa dan beban & Artillery atau k6 \\
+Security Testing & Pengujian keamanan & OWASP ZAP \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Unit Testing}
+\textbf{STATUS}: Semua jenis testing di atas adalah RENCANA. Belum ada test yang sudah dibuat atau dijalankan saat ini.
 
-\subsubsection{Contoh Test Case: Food Eligibility Score}
-\begin{verbatim}
-describe('Food Eligibility Score', () => {
-  test('should return score > 80 for fresh food', () => {
-    const foodData = {
-      productionTime: new Date(),
-      shelfLife: 24,
-      packagingCondition: 'good',
-      storageTemp: 4
-    };
-    const score = calculateFES(foodData);
-    expect(score).toBeGreaterThan(80);
-  });
+\subsection{Unit Testing (Rencana)}
 
-  test('should return score < 50 for expired food', () => {
-    const foodData = {
-      productionTime: new Date('2024-01-01'),
-      shelfLife: 2,
-      packagingCondition: 'poor',
-      storageTemp: 15
-    };
-    const score = calculateFES(foodData);
-    expect(score).toBeLessThan(50);
-  });
-});
-\end{verbatim}
+\subsubsection{Area yang Akan Ditest}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Food Eligibility Score Calculation} — Testing algoritma FES dengan berbagai input parameter
+    \item \textbf{Dynamic Pricing Calculation} — Testing algoritma dynamic pricing untuk berbagai kondisi
+    \item \textbf{Authentication Logic} — Testing login, register, password hashing
+    \item \textbf{Data Validation} — Testing validasi input form
+\end{itemize}
 
-\subsection{API Testing}
+\subsubsection{Test Coverage Target}
+\begin{itemize}[leftmargin=*]
+    \item Backend Core Logic: target >80\% coverage
+    \item API Routes: target >70\% coverage
+    \item ML Service: target >75\% coverage
+    \item Frontend Components: target >60\% coverage
+    \item Overall Project: target >70\% coverage
+\end{itemize}
+
+\subsection{Integration Testing (Rencana)}
+
+Akan memastikan komunikasi antar modul berjalan dengan baik:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Frontend-Backend Integration} — Memastikan API calls dari frontend berhasil
+    \item \textbf{Backend-Database Integration} — Memastikan CRUD operations via ORM bekerja
+    \item \textbf{Backend-ML Service Integration} — Memastikan request ke Python microservice berhasil
+    \item \textbf{Payment Gateway Integration} — Memastikan flow pembayaran berjalan lancar (jika ada)
+\end{itemize}
+
+\subsection{API Testing (Rencana)}
+
+Endpoint API akan diuji untuk memastikan response code dan response time optimal:
 
 \begin{table}[H]
 \centering
-\caption{Hasil Pengujian API}
+\caption{Target API Performance}
 \label{tab:api_testing}
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
-\textbf{Endpoint} & \textbf{Status} & \textbf{Response Time} \\
+\textbf{Endpoint} & \textbf{Expected Status} & \textbf{Target Response Time} \\
 \midrule
-POST /api/auth/register & 201 Created & $<$ 200ms \\
-POST /api/auth/login & 200 OK & $<$ 150ms \\
-GET /api/products & 200 OK & $<$ 100ms \\
-POST /api/products & 201 Created & $<$ 250ms \\
-POST /api/orders & 201 Created & $<$ 300ms \\
-PUT /api/orders/:id/status & 200 OK & $<$ 150ms \\
+POST /api/auth/register & 201 Created & < 300ms \\
+POST /api/auth/login & 200 OK & < 200ms \\
+GET /api/products & 200 OK & < 150ms \\
+POST /api/products & 201 Created & < 300ms \\
+POST /api/orders & 201 Created & < 400ms \\
+PUT /api/orders/:id/status & 200 OK & < 200ms \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Usability Testing}
+\subsection{Usability Testing (Rencana)}
 
-Pengujian kegunaan dilakukan dengan 5 partisipan yang mewakili target pengguna:
+Akan dilakukan dengan partisipan yang mewakili target pengguna untuk mengevaluasi:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Learnability} — Seberapa mudah pengguna baru memahami antarmuka
+    \item \textbf{Efficiency} — Seberapa cepat pengguna menyelesaikan task
+    \item \textbf{Memorability} — Seberapa mudah pengguna mengingat cara penggunaan
+    \item \textbf{Errors} — Seberapa sering pengguna melakukan kesalahan
+    \item \textbf{Satisfaction} — Seberapa puas pengguna dengan aplikasi
+\end{enumerate}
+
+\textbf{Skenario Testing yang Akan Diuji:}
+
+Untuk Customer:
+\begin{itemize}[leftmargin=*]
+    \item Registrasi akun baru
+    \item Mencari produk berdasarkan lokasi
+    \item Melihat detail produk dan Food Eligibility Score
+    \item Melakukan pembelian dan checkout
+    \item Memberikan rating dan review
+\end{itemize}
+
+Untuk UMKM:
+\begin{itemize}[leftmargin=*]
+    \item Registrasi dan verifikasi akun
+    \item Menambahkan produk surplus
+    \item Mengisi Food Eligibility Assessment
+    \item Menerima dan memproses pesanan
+    \item Melihat Food Rescue Score
+\end{itemize}
+
+\subsection{Performance Testing (Rencana)}
+
+Akan mensimulasikan beban pengguna untuk memastikan aplikasi dapat handle traffic tinggi:
 
 \begin{table}[H]
 \centering
-\caption{Hasil Usability Testing}
-\label{tab:usability}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
-\textbf{Skenario} & \textbf{Skor Kemudahan} & \textbf{Waktu Rata-rata} \\
-\midrule
-Registrasi akun baru & 4.2/5 & 2 menit \\
-Login dan navigasi & 4.5/5 & 1 menit \\
-Membeli produk (Customer) & 4.0/5 & 3 menit \\
-Menambah produk (UMKM) & 3.8/5 & 4 menit \\
-Mengisi Food Eligibility & 3.5/5 & 5 menit \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Performance Testing}
-
-\begin{table}[H]
-\centering
-\caption{Hasil Pengujian Performa}
+\caption{Target Metrik Performa}
 \label{tab:performance}
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
-\textbf{Metrik} & \textbf{Target} & \textbf{Hasil} \\
+\textbf{Metrik} & \textbf{Target} & \textbf{Kondisi} \\
 \midrule
-Response Time (rata-rata) & $<$ 500ms & 180ms \\
-Response Time (p95) & $<$ 1000ms & 450ms \\
-Concurrent Users & 100 & 150 \\
-Error Rate & $<$ 1\% & 0.2\% \\
-Uptime & 99\% & 99.5\% \\
+Response Time (rata-rata) & < 500ms & Load normal \\
+Response Time (p95) & < 1000ms & Load normal \\
+Concurrent Users & 100+ & Tanpa degradasi performa \\
+Throughput & 50+ req/sec & Per endpoint \\
+Error Rate & < 1\% & Semua kondisi \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Limitasi Pengujian}
+\textbf{Load Testing Scenarios yang Akan Dilakukan:}
+\begin{itemize}[leftmargin=*]
+    \item Normal Load: 50 concurrent users selama 10 menit
+    \item Peak Load: 100 concurrent users selama 5 menit
+    \item Stress Test: Gradually increase users hingga sistem menunjukkan degradasi
+    \item Spike Test: Sudden increase dari 10 ke 100 users dalam 30 detik
+\end{itemize}
+
+\subsection{Security Testing (Rencana)}
+
+Akan fokus pada OWASP Top 10 vulnerabilities:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{SQL Injection} — Memastikan input user di-sanitize dengan ORM
+    \item \textbf{Authentication} — Memastikan password di-hash, token JWT secure
+    \item \textbf{XSS Protection} — Memastikan user input di-escape
+    \item \textbf{CSRF Protection} — Implementasi CSRF token untuk forms
+    \item \textbf{Sensitive Data} — Memastikan password tidak di-log atau exposed
+    \item \textbf{API Security} — Implementasi rate limiting dan CORS policy
+\end{enumerate}
+
+\subsection{Testing Timeline}
+
+\begin{table}[H]
+\centering
+\caption{Rencana Timeline Pengujian}
+\label{tab:testing_timeline}
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Fase} & \textbf{Aktivitas} & \textbf{Durasi} \\
+\midrule
+Development & Unit testing parallel dengan development & Ongoing \\
+Integration & Integration testing setelah modul selesai & 1 minggu \\
+System Testing & API, UI, performance testing & 1-2 minggu \\
+User Acceptance & Usability testing dengan target user & 1 minggu \\
+Security & Security audit dan penetration testing & 1 minggu \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Bug Tracking dan Issue Management}
+
+Untuk mengelola bug dan issue yang ditemukan:
 
 \begin{itemize}[leftmargin=*]
-    \item Pengujian keamanan baru dilakukan pada level dasar (OWASP Top 10). Pengujian penetrasi lengkap membutuhkan waktu dan ahli keamanan khusus.
-    \item Pengujian performa dilakukan pada skala kecil (150 pengguna simultan). Pengujian skala besar membutuhkan infrastruktur production-ready.
-    \item Fitur prediksi produksi belum dapat diuji secara menyeluruh karena membutuhkan data historis yang cukup.
+    \item \textbf{Platform} — GitHub Issues untuk tracking
+    \item \textbf{Priority Levels} — Critical, High, Medium, Low
+    \item \textbf{Bug Report Template} — Steps to reproduce, expected vs actual behavior
+    \item \textbf{Definition of Done} — Bug fix must include test case
 \end{itemize}
+
+\subsection{Continuous Integration (Rencana)}
+
+Testing akan diintegrasikan dengan CI/CD pipeline:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pre-commit Hooks} — Linting dan formatting check
+    \item \textbf{Pull Request Checks} — Unit tests dan integration tests otomatis
+    \item \textbf{Code Coverage Report} — Automated coverage report di setiap PR
+    \item \textbf{Security Scan} — Dependency vulnerability check
+\end{itemize}
+
+\textbf{CATATAN PENTING}: Semua rencana testing di atas akan diimplementasikan pada fase development. Saat ini belum ada test yang sudah ditulis atau dijalankan. Aplikasi belum dibangun sehingga tidak ada hasil testing yang dapat dilaporkan.

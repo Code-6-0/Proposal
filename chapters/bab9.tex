@@ -1,75 +1,79 @@
-\subsection{Daftar Fitur yang Diimplementasikan}
+\section{RENCANA IMPLEMENTASI}
 
-Berikut adalah daftar fitur utama ResQfood beserta status implementasinya:
+\subsection{Rencana Implementasi Fitur}
+
+Berikut adalah daftar fitur utama ResQfood yang akan diimplementasikan:
 
 \begin{table}[H]
 \centering
-\caption{Status Implementasi Fitur}
+\caption{Rencana Implementasi Fitur}
 \label{tab:implementasi}
 \small
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
-\textbf{Modul} & \textbf{Fitur} & \textbf{Status} \\
+\textbf{Modul} & \textbf{Fitur} & \textbf{Prioritas} \\
 \midrule
-\multirow{4}{*}{Authentication} & Registrasi & Completed \\
-& Login/Logout & Completed \\
-& Forgot Password & Completed \\
-& Role-based Access & Completed \\
+\multirow{4}{*}{Authentication} & Registrasi & High \\
+& Login/Logout & High \\
+& Forgot Password & Medium \\
+& Role-based Access & High \\
 \addlinespace
-\multirow{4}{*}{Admin} & Dashboard Statistik & Completed \\
-& Manajemen User & Completed \\
-& Monitoring Produk & Completed \\
-& Verifikasi Donasi & Partial \\
+\multirow{4}{*}{Admin} & Dashboard Statistik & High \\
+& Manajemen User & Medium \\
+& Monitoring Produk & High \\
+& Verifikasi Donasi & Medium \\
 \addlinespace
-\multirow{5}{*}{UMKM} & Kelola Produk & Completed \\
-& Food Eligibility Assessment & Completed \\
-& Food Eligibility Score & Completed \\
-& Dynamic Pricing & Completed \\
-& Riwayat Penjualan & Completed \\
+\multirow{5}{*}{UMKM} & Kelola Produk & High \\
+& Food Eligibility Assessment & High \\
+& Food Eligibility Score & High \\
+& Dynamic Pricing & High \\
+& Riwayat Penjualan & Medium \\
 \addlinespace
-\multirow{4}{*}{Customer} & Marketplace & Completed \\
-& Checkout \& Payment & Completed \\
-& Tracking Pesanan & Completed \\
-& Rating \& Ulasan & Completed \\
+\multirow{4}{*}{Customer} & Marketplace & High \\
+& Checkout \& Payment & High \\
+& Tracking Pesanan & Medium \\
+& Rating \& Ulasan & Medium \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Screenshot Antarmuka}
+\subsection{Desain Antarmuka (Rencana)}
 
 \subsubsection{Halaman Marketplace (Customer)}
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Marketplace\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
-\caption{Tampilan Marketplace untuk Customer}
-\label{fig:marketplace}
-\end{figure}
-
-Halaman marketplace menampilkan daftar makanan surplus dari UMKM terdekat dengan pengguna. Setiap produk menampilkan informasi harga asli, harga diskon, sisa waktu kelayakan, dan \textit{Food Trust Index}.
+Halaman marketplace akan menampilkan daftar makanan surplus dari UMKM terdekat dengan pengguna. Setiap produk akan menampilkan informasi:
+\begin{itemize}[leftmargin=*]
+    \item Foto produk
+    \item Nama produk dan UMKM
+    \item Harga asli dan harga diskon
+    \item Sisa waktu kelayakan (countdown timer)
+    \item Food Eligibility Score
+    \item Jarak dari lokasi pengguna
+\end{itemize}
 
 \subsubsection{Halaman Food Eligibility Assessment (UMKM)}
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Food Eligibility\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
-\caption{Tampilan Food Eligibility Assessment}
-\label{fig:food_eligibility}
-\end{figure}
+UMKM akan mengisi form penilaian kelayakan makanan yang mencakup:
+\begin{itemize}[leftmargin=*]
+    \item Waktu produksi
+    \item Estimasi masa simpan
+    \item Kondisi kemasan (baik/sedang/buruk)
+    \item Suhu penyimpanan
+\end{itemize}
 
-UMKM mengisi form penilaian kelayakan makanan yang mencakup waktu produksi, estimasi masa simpan, kondisi kemasan, dan suhu penyimpanan. Sistem kemudian menghitung \textit{Food Eligibility Score} secara otomatis.
+Sistem kemudian akan menghitung \textit{Food Eligibility Score} secara otomatis menggunakan algoritma weighted scoring.
 
 \subsubsection{Halaman Dashboard Admin}
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}Screenshot Dashboard Admin\\(Akan diganti dengan screenshot aktual)\vspace{3cm}}}
-\caption{Tampilan Dashboard Admin}
-\label{fig:dashboard_admin}
-\end{figure}
+Dashboard admin akan menampilkan ringkasan aktivitas platform:
+\begin{itemize}[leftmargin=*]
+    \item Jumlah UMKM aktif
+    \item Total transaksi (harian/mingguan/bulanan)
+    \item Volume food waste yang berhasil diselamatkan (kg)
+    \item Statistik donasi
+    \item Grafik tren penjualan
+\end{itemize}
 
-Dashboard admin menampilkan ringkasan aktivitas platform meliputi jumlah UMKM aktif, total transaksi, volume \textit{food waste} yang berhasil diselamatkan, dan statistik donasi.
+\subsection{Spesifikasi Teknis Fitur Utama}
 
-\subsection{Penjelasan Teknis Fitur Utama}
-
-\subsubsection{Food Eligibility Assessment}
+\subsubsection{Food Eligibility Score (FES)}
 Sistem penilaian kelayakan makanan menggunakan model \textit{weighted scoring} dengan formula:
 
 \begin{equation}
@@ -87,8 +91,18 @@ Dimana:
     \item $w_1, w_2, w_3, w_4$ = Bobot masing-masing komponen
 \end{itemize}
 
+\textbf{Contoh Perhitungan:}
+\begin{itemize}[leftmargin=*]
+    \item Bobot: $w_1 = 0.3$, $w_2 = 0.4$, $w_3 = 0.2$, $w_4 = 0.1$
+    \item Produk baru (8 jam): $T_{prod} = 90$
+    \item Sisa 16 jam dari 24 jam: $S_{simpan} = 67$
+    \item Kemasan baik: $K_{kemasan} = 100$
+    \item Suhu 4°C (ideal): $T_{suhu} = 100$
+    \item $FES = 0.3(90) + 0.4(67) + 0.2(100) + 0.1(100) = 83.8$
+\end{itemize}
+
 \subsubsection{Dynamic Pricing Engine}
-Algoritma penetapan harga dinamis mempertimbangkan:
+Algoritma penetapan harga dinamis akan mempertimbangkan:
 
 \begin{equation}
     P_{diskon} = P_{asal} \cdot \left(1 - \alpha \cdot \frac{T_{max} - T_{sisa}}{T_{max}}\right) \cdot \beta_{permintaan}
@@ -97,19 +111,73 @@ Algoritma penetapan harga dinamis mempertimbangkan:
 
 Dimana:
 \begin{itemize}[leftmargin=*]
-    \item $P_{diskon}$ = Harga diskon yang ditampilkan
+    \item $P_{diskon}$ = Harga diskon yang direkomendasikan
     \item $P_{asal}$ = Harga asli produk
     \item $\alpha$ = Faktor diskon maksimal (0.5 = 50\%)
     \item $T_{max}$ = Masa simpan maksimal
     \item $T_{sisa}$ = Sisa waktu kelayakan
-    \item $\beta_{permintaan}$ = Faktor permintaan lokal
+    \item $\beta_{permintaan}$ = Faktor permintaan lokal (0.8-1.2)
 \end{itemize}
 
-\subsection{Integrasi Sistem}
+\textbf{Contoh Perhitungan:}
+\begin{itemize}[leftmargin=*]
+    \item Harga asli: Rp 50.000
+    \item Masa simpan maksimal: 24 jam
+    \item Sisa waktu: 6 jam
+    \item Diskon maksimal: 50\% ($\alpha = 0.5$)
+    \item Permintaan normal: $\beta = 1.0$
+    \item $P_{diskon} = 50000 \cdot (1 - 0.5 \cdot \frac{24-6}{24}) \cdot 1.0 = 50000 \cdot 0.625 = Rp 31.250$
+\end{itemize}
 
+\subsection{Arsitektur Sistem}
+
+\subsubsection{Integrasi Antar Komponen}
 \begin{itemize}[leftmargin=*]
     \item \textbf{Frontend-Backend} — Komunikasi via RESTful API dengan format JSON
     \item \textbf{Backend-Database} — Menggunakan Prisma ORM untuk akses PostgreSQL
-    \item \textbf{Backend-ML Service} — HTTP request ke Python microservice untuk prediksi
+    \item \textbf{Backend-ML Service} — HTTP request ke Python microservice untuk Food Eligibility Score calculation dan Dynamic Pricing recommendation
     \item \textbf{Real-time} — Socket.IO untuk notifikasi dan update status pesanan
 \end{itemize}
+
+\subsubsection{API Endpoints (Rencana)}
+\begin{table}[H]
+\centering
+\caption{Daftar API Endpoints}
+\label{tab:api_endpoints}
+\small
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Fungsi} \\
+\midrule
+POST & /api/auth/register & Registrasi user \\
+POST & /api/auth/login & Login user \\
+GET & /api/products & List produk \\
+POST & /api/products & Tambah produk (UMKM) \\
+POST & /api/products/:id/fes & Hitung Food Eligibility Score \\
+GET & /api/products/:id/pricing & Dynamic pricing recommendation \\
+POST & /api/orders & Buat pesanan \\
+PUT & /api/orders/:id/status & Update status pesanan \\
+POST & /api/reviews & Tambah review \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Technology Stack}
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack ResQfood}
+\label{tab:tech_stack_implementation}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Komponen} & \textbf{Teknologi} & \textbf{Alasan Pemilihan} \\
+\midrule
+Frontend & React.js & Komponen reusable, performa tinggi \\
+Backend & Node.js + Express & Asynchronous, cocok untuk real-time \\
+Database & PostgreSQL & ACID compliance, relational data \\
+ORM & Prisma & Type-safe, migration tool \\
+ML Service & Python + scikit-learn & Ecosystem ML yang matang \\
+Real-time & Socket.IO & Notifikasi real-time \\
+\bottomrule
+\end{tabularx}
+\end{table}

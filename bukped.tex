@@ -76,7 +76,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
-    citecolor=black,
+    citecolor=blue,
     filecolor=black,
     urlcolor=blue,
 }
@@ -96,16 +96,22 @@
 \renewcommand{\cftloftitlefont}{\hfill\fontsize{14}{17}\selectfont\bfseries}
 \renewcommand{\cftafterloftitle}{\hfill}
 
+% TOC spacing for Roman numerals (BAB I, II, III...)
+\setlength{\cftsecnumwidth}{6em}
+
 % Subsection numbering format
+% Format section numbering: BAB I, BAB II, BAB III...
+\renewcommand{\thesection}{BAB \Roman{section}}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
-% Bibliography Style
+% Bibliography Style - IEEE NUMERIC
 \usepackage[
     backend=biber,
-    style=authoryear,
-    sorting=nyt,
+    style=numeric,
+    sorting=none,
     maxbibnames=99,
-    dashed=false,
+    hyperref=true,
+    backref=false,
     url=false,
     doi=true,
 ]{biblatex}
@@ -115,12 +121,9 @@
 \addbibresource{references.bib}
 \addbibresource{include.bib}
 
-% Make \cite behave like \parencite
-\let\cite\parencite
+% DO NOT redefine \cite - let it use default numeric style
 
-% Custom citation formatting
-\renewcommand*{\finalnamedelim}{\addspace\&\addspace}
-\renewcommand*{\nameyeardelim}{\addcomma\space}
+% IEEE style does not need custom delimiters
 
 % Remove "In:" from bibliography
 \renewbibmacro{in:}{}
@@ -270,86 +273,53 @@
 \clearpage
 
 % ==================== BAGIAN 3: LATAR BELAKANG & URGENSI ====================
-\section*{LATAR BELAKANG \& URGENSI MASALAH}
-\phantomsection
-\addcontentsline{toc}{section}{LATAR BELAKANG \& URGENSI MASALAH}
+% REMOVED: Section header "LATAR BELAKANG & URGENSI MASALAH" 
+% (redundant - content already in BAB I PENDAHULUAN)
+
 \input{chapters/bab1}
 \clearpage
 
 % ==================== BAGIAN 4: TUJUAN, MANFAAT, & DAMPAK ====================
-\section*{TUJUAN, MANFAAT, \& DAMPAK}
-\phantomsection
-\addcontentsline{toc}{section}{TUJUAN, MANFAAT, \& DAMPAK}
 \input{chapters/bab2}
 \clearpage
 
 % ==================== BAGIAN 5: NILAI INOVASI & ORISINALITAS ====================
-\section*{NILAI INOVASI \& ORISINALITAS}
-\phantomsection
-\addcontentsline{toc}{section}{NILAI INOVASI \& ORISINALITAS}
 \input{chapters/bab3}
 \clearpage
 
 % ==================== BAGIAN 6: ANALISIS KOMPETITOR & BUSINESS VIABILITY ====================
-\section*{ANALISIS KOMPETITOR \& BUSINESS VIABILITY}
-\phantomsection
-\addcontentsline{toc}{section}{ANALISIS KOMPETITOR \& BUSINESS VIABILITY}
 \input{chapters/bab4}
 \clearpage
 
 % ==================== BAGIAN 7: TEKNOLOGI YANG DIGUNAKAN ====================
-\section*{TEKNOLOGI YANG DIGUNAKAN}
-\phantomsection
-\addcontentsline{toc}{section}{TEKNOLOGI YANG DIGUNAKAN}
 \input{chapters/bab5}
 \clearpage
 
 % ==================== BAGIAN 8: BATASAN PERANGKAT LUNAK ====================
-\section*{BATASAN PERANGKAT LUNAK}
-\phantomsection
-\addcontentsline{toc}{section}{BATASAN PERANGKAT LUNAK}
 \input{chapters/bab6}
 \clearpage
 
 % ==================== BAGIAN 9: METODOLOGI PENGEMBANGAN ====================
-\section*{METODOLOGI PENGEMBANGAN}
-\phantomsection
-\addcontentsline{toc}{section}{METODOLOGI PENGEMBANGAN}
 \input{chapters/bab7}
 \clearpage
 
 % ==================== BAGIAN 10: ARSITEKTUR SISTEM & DESAIN ====================
-\section*{ARSITEKTUR SISTEM \& DESAIN}
-\phantomsection
-\addcontentsline{toc}{section}{ARSITEKTUR SISTEM \& DESAIN}
 \input{chapters/bab8}
 \clearpage
 
 % ==================== BAGIAN 11: IMPLEMENTASI TEKNIS ====================
-\section*{IMPLEMENTASI TEKNIS}
-\phantomsection
-\addcontentsline{toc}{section}{IMPLEMENTASI TEKNIS}
 \input{chapters/bab9}
 \clearpage
 
 % ==================== BAGIAN 12: ANALISIS UI/UX & ACCESSIBILITY ====================
-\section*{ANALISIS UI/UX \& ACCESSIBILITY}
-\phantomsection
-\addcontentsline{toc}{section}{ANALISIS UI/UX \& ACCESSIBILITY}
 \input{chapters/bab10}
 \clearpage
 
 % ==================== BAGIAN 13: PENGUJIAN (TESTING) ====================
-\section*{PENGUJIAN (TESTING)}
-\phantomsection
-\addcontentsline{toc}{section}{PENGUJIAN (TESTING)}
 \input{chapters/bab11}
 \clearpage
 
 % ==================== BAGIAN 14: DOKUMENTASI PENGGUNAAN ====================
-\section*{DOKUMENTASI PENGGUNAAN}
-\phantomsection
-\addcontentsline{toc}{section}{DOKUMENTASI PENGGUNAAN}
 \input{chapters/bab12}
 \clearpage
 

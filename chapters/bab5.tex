@@ -1,3 +1,5 @@
+\section{TEKNOLOGI}
+
 \subsection{Daftar Teknologi}
 
 Berikut adalah daftar lengkap teknologi yang digunakan dalam pengembangan ResQfood:
@@ -56,7 +58,7 @@ Node.js dan Express dipilih karena:
 \subsubsection{Python + scikit-learn untuk Machine Learning}
 Python dipilih untuk komponen \textit{machine learning} karena:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Ekosistem ML Terkaya} — scikit-learn, pandas, dan numpy menyediakan tools yang komprehensif untuk prediksi.
+    \item \textbf{Ekosistem ML Terkaya} — scikit-learn, pandas, dan numpy menyediakan tools yang komprehensif untuk algoritma scoring dan analitik.
     \item \textbf{Integrasi Mudah} — Dapat diintegrasikan dengan backend Node.js melalui API atau \textit{microservice}.
     \item \textbf{Prototyping Cepat} — Memungkinkan eksperimen dan iterasi model dengan cepat.
 \end{itemize}
@@ -77,6 +79,6 @@ Alur komunikasi sistem:
     \item \textbf{API Gateway} — Request diteruskan ke Express.js backend.
     \item \textbf{Application Layer} — Backend memproses business logic, autentikasi, dan validasi data.
     \item \textbf{Data Layer} — PostgreSQL menyimpan data persisten, Redis menyimpan cache dan session.
-    \item \textbf{ML Service} — Python microservice menangani prediksi produksi dan analitik.
+    \item \textbf{ML Service} — Python microservice menangani Food Eligibility Score calculation dan analitik dashboard.
     \item \textbf{Real-time Layer} — Socket.IO menangani notifikasi dan update status secara real-time.
 \end{enumerate}

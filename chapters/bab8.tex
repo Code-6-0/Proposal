@@ -1,3 +1,5 @@
+\section{ARSITEKTUR SISTEM}
+
 \subsection{Diagram Arsitektur Sistem}
 
 \begin{figure}[H]
@@ -84,7 +86,7 @@ Alur data utama dalam ResQfood:
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Alur Penjualan} — UMKM $\rightarrow$ Upload Produk $\rightarrow$ Food Eligibility Assessment $\rightarrow$ Dynamic Pricing $\rightarrow$ Customer Browse $\rightarrow$ Checkout $\rightarrow$ Payment $\rightarrow$ Tracking $\rightarrow$ Delivery $\rightarrow$ Rating.
     
-    \item \textbf{Alur Donasi} — Food Rescue Score Menurun $\rightarrow$ Rekomendasi Donasi $\rightarrow$ UMKM Setuju $\rightarrow$ Pilih Penerima $\rightarrow$ Donasi Terealisasi.
+    \item \textbf{Alur Donasi (Manual)} — Food Rescue Score Menurun $\rightarrow$ Notifikasi ke UMKM $\rightarrow$ UMKM Putuskan Donasi $\rightarrow$ Pilih Penerima $\rightarrow$ Koordinasi Pickup.
     
-    \item \textbf{Alur Prediksi} — Data Historis $\rightarrow$ Analisis Pola $\rightarrow$ Prediksi Permintaan $\rightarrow$ Rekomendasi Produksi $\rightarrow$ UMKM Terima Rekomendasi.
+    \item \textbf{Alur Monitoring} — Admin $\rightarrow$ Dashboard $\rightarrow$ Lihat Statistik $\rightarrow$ Identifikasi Issue $\rightarrow$ Tindak Lanjut (suspend, verifikasi, moderasi).
 \end{enumerate}
