@@ -12,9 +12,9 @@
 
 Terdapat tiga aktor utama dalam sistem Savora:
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Customer} — Pengguna yang membeli makanan surplus, memberikan rating, dan melacak pesanan.
-    \item \textbf{UMKM} — Pengelola produk yang mengelola stok, menentukan harga, dan memproses pesanan.
-    \item \textbf{Admin} — Pengelola sistem yang memantau aktivitas, mengelola user, dan memverifikasi donasi.
+    \item \textbf{Customer} : Pengguna yang membeli makanan surplus, memberikan rating, dan melacak pesanan.
+    \item \textbf{UMKM} : Pengelola produk yang mengelola stok, menentukan harga, dan memproses pesanan.
+    \item \textbf{Admin} : Pengelola sistem yang memantau aktivitas, mengelola user, dan memverifikasi donasi.
 \end{enumerate}
 
 \subsection{ERD (Entity Relationship Diagram)}
@@ -102,9 +102,9 @@ GET & /api/admin/dashboard & Dapatkan data dashboard \\
 Alur data utama dalam Savora:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Alur Penjualan} — UMKM $\rightarrow$ Upload Produk $\rightarrow$ Food Eligibility Assessment $\rightarrow$ Dynamic Pricing $\rightarrow$ Customer Browse $\rightarrow$ Checkout $\rightarrow$ Payment $\rightarrow$ Tracking $\rightarrow$ Delivery $\rightarrow$ Rating.
+    \item \textbf{Alur Penjualan} : UMKM $\rightarrow$ Upload Produk $\rightarrow$ Food Eligibility Assessment $\rightarrow$ Dynamic Pricing $\rightarrow$ Customer Browse $\rightarrow$ Checkout $\rightarrow$ Payment $\rightarrow$ Tracking $\rightarrow$ Delivery $\rightarrow$ Rating.
     
-    \item \textbf{Alur Donasi (Manual)} — Food Rescue Score Menurun $\rightarrow$ Notifikasi ke UMKM $\rightarrow$ UMKM Putuskan Donasi $\rightarrow$ Pilih Penerima $\rightarrow$ Koordinasi Pickup.
+    \item \textbf{Alur Donasi (Manual)} : Food Rescue Score Menurun $\rightarrow$ Notifikasi ke UMKM $\rightarrow$ UMKM Putuskan Donasi $\rightarrow$ Pilih Penerima $\rightarrow$ Koordinasi Pickup.
     
-    \item \textbf{Alur Monitoring} — Admin $\rightarrow$ Dashboard $\rightarrow$ Lihat Statistik $\rightarrow$ Identifikasi Issue $\rightarrow$ Tindak Lanjut (suspend, verifikasi, moderasi).
+    \item \textbf{Alur Monitoring} : Admin $\rightarrow$ Dashboard $\rightarrow$ Lihat Statistik $\rightarrow$ Identifikasi Issue $\rightarrow$ Tindak Lanjut (suspend, verifikasi, moderasi).
 \end{enumerate}

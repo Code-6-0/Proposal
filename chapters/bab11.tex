@@ -35,10 +35,10 @@ Security Testing & Pengujian keamanan & OWASP ZAP \\
 
 \subsubsection{Area yang Akan Ditest}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Food Eligibility Score Calculation} — Testing algoritma FES dengan berbagai input parameter
-    \item \textbf{Dynamic Pricing Calculation} — Testing algoritma dynamic pricing untuk berbagai kondisi
-    \item \textbf{Authentication Logic} — Testing login, register, password hashing
-    \item \textbf{Data Validation} — Testing validasi input form
+    \item \textbf{Food Eligibility Score Calculation} : Testing algoritma FES dengan berbagai input parameter
+    \item \textbf{Dynamic Pricing Calculation} : Testing algoritma dynamic pricing untuk berbagai kondisi
+    \item \textbf{Authentication Logic} : Testing login, register, password hashing
+    \item \textbf{Data Validation} : Testing validasi input form
 \end{itemize}
 
 \subsubsection{Test Coverage Target}
@@ -55,10 +55,10 @@ Security Testing & Pengujian keamanan & OWASP ZAP \\
 Akan memastikan komunikasi antar modul berjalan dengan baik:
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Frontend-Backend Integration} — Memastikan API calls dari frontend berhasil
-    \item \textbf{Backend-Database Integration} — Memastikan CRUD operations via ORM bekerja
-    \item \textbf{Backend-ML Service Integration} — Memastikan request ke Python microservice berhasil
-    \item \textbf{Payment Gateway Integration} — Memastikan flow pembayaran berjalan lancar (jika ada)
+    \item \textbf{Frontend-Backend Integration} : Memastikan API calls dari frontend berhasil
+    \item \textbf{Backend-Database Integration} : Memastikan CRUD operations via ORM bekerja
+    \item \textbf{Backend-ML Service Integration} : Memastikan request ke Python microservice berhasil
+    \item \textbf{Payment Gateway Integration} : Memastikan flow pembayaran berjalan lancar (jika ada)
 \end{itemize}
 
 \subsection{API Testing (Rencana)}
@@ -93,11 +93,11 @@ PUT /api/orders/:id/status & 200 OK & < 200ms \\
 Akan dilakukan dengan partisipan yang mewakili target pengguna untuk mengevaluasi:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Learnability} — Seberapa mudah pengguna baru memahami antarmuka
-    \item \textbf{Efficiency} — Seberapa cepat pengguna menyelesaikan task
-    \item \textbf{Memorability} — Seberapa mudah pengguna mengingat cara penggunaan
-    \item \textbf{Errors} — Seberapa sering pengguna melakukan kesalahan
-    \item \textbf{Satisfaction} — Seberapa puas pengguna dengan aplikasi
+    \item \textbf{Learnability} : Seberapa mudah pengguna baru memahami antarmuka
+    \item \textbf{Efficiency} : Seberapa cepat pengguna menyelesaikan task
+    \item \textbf{Memorability} : Seberapa mudah pengguna mengingat cara penggunaan
+    \item \textbf{Errors} : Seberapa sering pengguna melakukan kesalahan
+    \item \textbf{Satisfaction} : Seberapa puas pengguna dengan aplikasi
 \end{enumerate}
 
 \textbf{Skenario Testing yang Akan Diuji:}
@@ -158,12 +158,12 @@ Error Rate & < 1\% & Semua kondisi \\
 Akan fokus pada OWASP Top 10 vulnerabilities:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{SQL Injection} — Memastikan input user di-sanitize dengan ORM
-    \item \textbf{Authentication} — Memastikan password di-hash, token JWT secure
-    \item \textbf{XSS Protection} — Memastikan user input di-escape
-    \item \textbf{CSRF Protection} — Implementasi CSRF token untuk forms
-    \item \textbf{Sensitive Data} — Memastikan password tidak di-log atau exposed
-    \item \textbf{API Security} — Implementasi rate limiting dan CORS policy
+    \item \textbf{SQL Injection} : Memastikan input user di-sanitize dengan ORM
+    \item \textbf{Authentication} : Memastikan password di-hash, token JWT secure
+    \item \textbf{XSS Protection} : Memastikan user input di-escape
+    \item \textbf{CSRF Protection} : Implementasi CSRF token untuk forms
+    \item \textbf{Sensitive Data} : Memastikan password tidak di-log atau exposed
+    \item \textbf{API Security} : Implementasi rate limiting dan CORS policy
 \end{enumerate}
 
 \subsection{Testing Timeline}
@@ -194,10 +194,10 @@ Security & Security audit dan penetration testing & 1 minggu \\
 Untuk mengelola bug dan issue yang ditemukan:
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Platform} — GitHub Issues untuk tracking
-    \item \textbf{Priority Levels} — Critical, High, Medium, Low
-    \item \textbf{Bug Report Template} — Steps to reproduce, expected vs actual behavior
-    \item \textbf{Definition of Done} — Bug fix must include test case
+    \item \textbf{Platform} : GitHub Issues untuk tracking
+    \item \textbf{Priority Levels} : Critical, High, Medium, Low
+    \item \textbf{Bug Report Template} : Steps to reproduce, expected vs actual behavior
+    \item \textbf{Definition of Done} : Bug fix must include test case
 \end{itemize}
 
 \subsection{Continuous Integration (Rencana)}
@@ -205,10 +205,10 @@ Untuk mengelola bug dan issue yang ditemukan:
 Testing akan diintegrasikan dengan CI/CD pipeline:
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Pre-commit Hooks} — Linting dan formatting check
-    \item \textbf{Pull Request Checks} — Unit tests dan integration tests otomatis
-    \item \textbf{Code Coverage Report} — Automated coverage report di setiap PR
-    \item \textbf{Security Scan} — Dependency vulnerability check
+    \item \textbf{Pre-commit Hooks} : Linting dan formatting check
+    \item \textbf{Pull Request Checks} : Unit tests dan integration tests otomatis
+    \item \textbf{Code Coverage Report} : Automated coverage report di setiap PR
+    \item \textbf{Security Scan} : Dependency vulnerability check
 \end{itemize}
 
 \textbf{CATATAN PENTING}: Semua rencana testing di atas akan diimplementasikan pada fase development. Saat ini belum ada test yang sudah ditulis atau dijalankan. Aplikasi belum dibangun sehingga tidak ada hasil testing yang dapat dilaporkan.
