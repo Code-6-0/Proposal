@@ -34,20 +34,28 @@ Terdapat tiga aktor utama dalam sistem Savora:
 \caption{Struktur Database Savora}
 \label{tab:database}
 \small
-\begin{tabularx}{\textwidth}{lX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
 \textbf{Tabel} & \textbf{Deskripsi} \\
-\midrule
+\hline
 users & Data pengguna (admin, UMKM, customer) \\
+\hline
 products & Informasi produk makanan \\
+\hline
 orders & Data transaksi pesanan \\
+\hline
 order\_items & Detail item dalam pesanan \\
+\hline
 food\_eligibility & Data kelayakan makanan \\
+\hline
 reviews & Rating dan ulasan konsumen \\
+\hline
 transactions & Log pembayaran \\
+\hline
 donations & Data donasi makanan \\
+\hline
 notifications & Notifikasi pengguna \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -60,22 +68,32 @@ Berikut adalah endpoint API utama yang digunakan dalam Savora:
 \caption{Endpoint API Utama}
 \label{tab:api}
 \small
-\begin{tabularx}{\textwidth}{llX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
 \textbf{Method} & \textbf{Endpoint} & \textbf{Deskripsi} \\
-\midrule
+\hline
 POST & /api/auth/register & Registrasi pengguna baru \\
+\hline
 POST & /api/auth/login & Login dan dapatkan token \\
+\hline
 GET & /api/products & Dapatkan daftar produk \\
+\hline
 POST & /api/products & Tambah produk baru (UMKM) \\
+\hline
 PUT & /api/products/:id & Update produk \\
+\hline
 DELETE & /api/products/:id & Hapus produk \\
+\hline
 POST & /api/orders & Buat pesanan baru \\
+\hline
 GET & /api/orders/:id & Dapatkan detail pesanan \\
+\hline
 PUT & /api/orders/:id/status & Update status pesanan \\
+\hline
 POST & /api/reviews & Tambah rating \& ulasan \\
+\hline
 GET & /api/admin/dashboard & Dapatkan data dashboard \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 

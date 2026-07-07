@@ -8,18 +8,24 @@ Savora akan menjalani berbagai jenis pengujian untuk memastikan kualitas aplikas
 \centering
 \caption{Jenis Pengujian yang Akan Dilakukan}
 \label{tab:testing}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
 \textbf{Jenis Testing} & \textbf{Deskripsi} & \textbf{Tools yang Akan Digunakan} \\
-\midrule
+\hline
 Unit Testing & Pengujian fungsi individual & Jest atau Vitest \\
+\hline
 Integration Testing & Pengujian integrasi antar modul & Jest + Supertest \\
+\hline
 API Testing & Pengujian endpoint API & Postman atau Supertest \\
+\hline
 UI Testing & Pengujian antarmuka pengguna & Cypress atau Playwright \\
+\hline
 Usability Testing & Pengujian kemudahan penggunaan & Manual testing \\
+\hline
 Performance Testing & Pengujian performa dan beban & Artillery atau k6 \\
+\hline
 Security Testing & Pengujian keamanan & OWASP ZAP \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -63,17 +69,22 @@ Endpoint API akan diuji untuk memastikan response code dan response time optimal
 \centering
 \caption{Target API Performance}
 \label{tab:api_testing}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
 \textbf{Endpoint} & \textbf{Expected Status} & \textbf{Target Response Time} \\
-\midrule
+\hline
 POST /api/auth/register & 201 Created & < 300ms \\
+\hline
 POST /api/auth/login & 200 OK & < 200ms \\
+\hline
 GET /api/products & 200 OK & < 150ms \\
+\hline
 POST /api/products & 201 Created & < 300ms \\
+\hline
 POST /api/orders & 201 Created & < 400ms \\
+\hline
 PUT /api/orders/:id/status & 200 OK & < 200ms \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -117,16 +128,20 @@ Akan mensimulasikan beban pengguna untuk memastikan aplikasi dapat handle traffi
 \centering
 \caption{Target Metrik Performa}
 \label{tab:performance}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
 \textbf{Metrik} & \textbf{Target} & \textbf{Kondisi} \\
-\midrule
+\hline
 Response Time (rata-rata) & < 500ms & Load normal \\
+\hline
 Response Time (p95) & < 1000ms & Load normal \\
+\hline
 Concurrent Users & 100+ & Tanpa degradasi performa \\
+\hline
 Throughput & 50+ req/sec & Per endpoint \\
+\hline
 Error Rate & < 1\% & Semua kondisi \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -157,16 +172,20 @@ Akan fokus pada OWASP Top 10 vulnerabilities:
 \centering
 \caption{Rencana Timeline Pengujian}
 \label{tab:testing_timeline}
-\begin{tabularx}{\textwidth}{lXl}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline
 \textbf{Fase} & \textbf{Aktivitas} & \textbf{Durasi} \\
-\midrule
+\hline
 Development & Unit testing parallel dengan development & Ongoing \\
+\hline
 Integration & Integration testing setelah modul selesai & 1 minggu \\
+\hline
 System Testing & API, UI, performance testing & 1-2 minggu \\
+\hline
 User Acceptance & Usability testing dengan target user & 1 minggu \\
+\hline
 Security & Security audit dan penetration testing & 1 minggu \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 

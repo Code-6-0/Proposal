@@ -1,5 +1,7 @@
 \section{RENCANA IMPLEMENTASI}
 
+\textbf{CATATAN PENTING}: Bab ini berisi rencana implementasi yang akan dikerjakan pada fase development. Aplikasi belum dibangun, sehingga belum ada implementasi aktual, kode program, atau hasil deployment yang dapat dilaporkan. Dokumentasi implementasi aktual akan dilengkapi setelah aplikasi selesai dikembangkan.
+
 \subsection{Rencana Implementasi Fitur}
 
 Berikut adalah daftar fitur utama Savora yang akan diimplementasikan:
@@ -9,31 +11,44 @@ Berikut adalah daftar fitur utama Savora yang akan diimplementasikan:
 \caption{Rencana Implementasi Fitur}
 \label{tab:implementasi}
 \small
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
 \textbf{Modul} & \textbf{Fitur} & \textbf{Prioritas} \\
-\midrule
+\hline
 \multirow{4}{*}{Authentication} & Registrasi & High \\
+\hline
 & Login/Logout & High \\
+\hline
 & Forgot Password & Medium \\
+\hline
 & Role-based Access & High \\
-\addlinespace
+\hline
 \multirow{4}{*}{Admin} & Dashboard Statistik & High \\
+\hline
 & Manajemen User & Medium \\
+\hline
 & Monitoring Produk & High \\
+\hline
 & Verifikasi Donasi & Medium \\
-\addlinespace
+\hline
 \multirow{5}{*}{UMKM} & Kelola Produk & High \\
+\hline
 & Food Eligibility Assessment & High \\
+\hline
 & Food Eligibility Score & High \\
+\hline
 & Dynamic Pricing & High \\
+\hline
 & Riwayat Penjualan & Medium \\
-\addlinespace
+\hline
 \multirow{4}{*}{Customer} & Marketplace & High \\
+\hline
 & Checkout \& Payment & High \\
+\hline
 & Tracking Pesanan & Medium \\
+\hline
 & Rating \& Ulasan & Medium \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -95,20 +110,28 @@ Algoritma penetapan harga dinamis yang mempertimbangkan sisa waktu kelayakan pro
 \caption{Daftar API Endpoints}
 \label{tab:api_endpoints}
 \small
-\begin{tabularx}{\textwidth}{lXl}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline
 \textbf{Method} & \textbf{Endpoint} & \textbf{Fungsi} \\
-\midrule
+\hline
 POST & /api/auth/register & Registrasi user \\
+\hline
 POST & /api/auth/login & Login user \\
+\hline
 GET & /api/products & List produk \\
+\hline
 POST & /api/products & Tambah produk (UMKM) \\
+\hline
 POST & /api/products/:id/fes & Hitung Food Eligibility Score \\
+\hline
 GET & /api/products/:id/pricing & Dynamic pricing recommendation \\
+\hline
 POST & /api/orders & Buat pesanan \\
+\hline
 PUT & /api/orders/:id/status & Update status pesanan \\
+\hline
 POST & /api/reviews & Tambah review \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -118,16 +141,21 @@ POST & /api/reviews & Tambah review \\
 \centering
 \caption{Technology Stack Savora}
 \label{tab:tech_stack_implementation}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
 \textbf{Komponen} & \textbf{Teknologi} & \textbf{Alasan Pemilihan} \\
-\midrule
+\hline
 Frontend & React.js & Komponen reusable, performa tinggi \\
+\hline
 Backend & Node.js + Express & Asynchronous, cocok untuk real-time \\
+\hline
 Database & PostgreSQL & ACID compliance, relational data \\
+\hline
 ORM & Prisma & Type-safe, migration tool \\
+\hline
 ML Service & Python + scikit-learn & Ecosystem ML yang matang \\
+\hline
 Real-time & Socket.IO & Notifikasi real-time \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}

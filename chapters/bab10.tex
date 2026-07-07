@@ -19,151 +19,67 @@ Untuk memahami kebutuhan pengguna sebelum mulai implementasi, akan dilakukan pen
 \subsubsection{Persona 1: UMKM Kuliner (Draft)}
 \begin{table}[H]
 \centering
-\begin{tabularx}{0.8\textwidth}{lX}
-\toprule
+\begin{tabularx}{0.8\textwidth}{|l|X|}
+\hline
 \textbf{Aspek} & \textbf{Karakteristik} \\
-\midrule
+\hline
 Usia & 30-55 tahun \\
+\hline
 Usaha & Warung makan, kafe, katering \\
+\hline
 Teknologi & Cukup mahir menggunakan smartphone \\
+\hline
 Kebutuhan & Mengurangi food waste, menambah pendapatan \\
+\hline
 Pain Point & Kesulitan prediksi permintaan, tidak ada platform khusus \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
 \subsubsection{Persona 2: Customer (Draft)}
 \begin{table}[H]
 \centering
-\begin{tabularx}{0.8\textwidth}{lX}
-\toprule
+\begin{tabularx}{0.8\textwidth}{|l|X|}
+\hline
 \textbf{Aspek} & \textbf{Karakteristik} \\
-\midrule
+\hline
 Usia & 18-40 tahun (milenial dan Gen Z) \\
+\hline
 Pekerjaan & Mahasiswa, karyawan swasta \\
+\hline
 Kebutuhan & Makanan berkualitas dengan harga terjangkau \\
+\hline
 Pain Point & Ketidakyakinan terhadap kelayakan makanan diskon \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
 \subsubsection{Persona 3: Admin Platform (Draft)}
 \begin{table}[H]
 \centering
-\begin{tabularx}{0.8\textwidth}{lX}
-\toprule
+\begin{tabularx}{0.8\textwidth}{|l|X|}
+\hline
 \textbf{Aspek} & \textbf{Karakteristik} \\
-\midrule
+\hline
 Usia & 25-45 tahun \\
+\hline
 Peran & Operator platform, moderator \\
+\hline
 Kebutuhan & Monitoring transaksi, verifikasi UMKM \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
-\subsection{Rencana Desain UI/UX}
+\subsection{Desain UI/UX dan Mockup}
 
-\textbf{STATUS}: Belum dimulai. Desain akan dibuat setelah user research selesai.
+Placeholder untuk desain Figma dan mockup UI/UX yang akan disisipkan kemudian setelah fase design completion.
 
-\subsubsection{Tools yang Akan Digunakan}
+Konten yang akan ditampilkan di sini:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Wireframing} — Figma atau Adobe XD
-    \item \textbf{Prototyping} — Figma Interactive Prototype
-    \item \textbf{Design System} — Akan dibuat custom design system
+    \item Wireframes dan mockup aplikasi customer flow
+    \item Wireframes dan mockup aplikasi UMKM flow
+    \item Wireframes dan mockup aplikasi admin flow
+    \item Design system dan component library
 \end{itemize}
 
-\subsubsection{Halaman yang Akan Di-design}
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Customer Flow}
-    \begin{itemize}
-        \item Landing page
-        \item Marketplace (list produk)
-        \item Detail produk
-        \item Checkout dan payment
-        \item Order tracking
-        \item Profile dan impact dashboard
-    \end{itemize}
-    
-    \item \textbf{UMKM Flow}
-    \begin{itemize}
-        \item Dashboard overview
-        \item Tambah produk + Food Eligibility Assessment
-        \item Kelola produk dan inventory
-        \item Riwayat transaksi
-        \item Food Rescue Score dashboard
-    \end{itemize}
-    
-    \item \textbf{Admin Flow}
-    \begin{itemize}
-        \item Admin dashboard
-        \item User management
-        \item UMKM verification
-        \item Content moderation
-    \end{itemize}
-\end{enumerate}
-
-\subsection{Prinsip Desain yang Akan Diterapkan}
-
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Konsistensi} — Penggunaan warna, tipografi, dan komponen UI yang konsisten.
-    
-    \item \textbf{Hierarki Visual} — Informasi penting (harga diskon, sisa waktu) akan ditampilkan dengan ukuran yang menonjol.
-    
-    \item \textbf{Feedback} — Setiap aksi pengguna akan mendapatkan konfirmasi visual.
-    
-    \item \textbf{Mobile-First} — Desain akan dimulai dari layar mobile.
-\end{enumerate}
-
-\subsection{Rencana Accessibility (Target WCAG 2.2 Level AA)}
-
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Color Contrast} — Akan dipatuhi rasio kontras minimal 4.5:1 untuk teks.
-    
-    \item \textbf{Keyboard Navigation} — Seluruh fitur utama akan dapat diakses menggunakan keyboard.
-    
-    \item \textbf{Alt Text} — Semua gambar informational akan memiliki deskripsi alternatif.
-    
-    \item \textbf{Responsive Design} — Akan optimal di berbagai ukuran layar (mobile 360px+, desktop 1024px+).
-    
-    \item \textbf{Font Size} — Ukuran font minimal 14px untuk mobile, 16px untuk desktop.
-    
-    \item \textbf{ARIA Attributes} — Akan digunakan untuk meningkatkan aksesibilitas komponen interaktif.
-\end{itemize}
-
-\subsection{Timeline Desain UI/UX}
-
-\begin{table}[H]
-\centering
-\caption{Rencana Timeline Desain}
-\label{tab:design_timeline}
-\begin{tabularx}{\textwidth}{lXl}
-\toprule
-\textbf{Fase} & \textbf{Aktivitas} & \textbf{Durasi} \\
-\midrule
-Research & User interviews dan survey & 1-2 minggu \\
-Wireframing & Low-fidelity wireframes & 1 minggu \\
-Design & High-fidelity mockups & 2 minggu \\
-Prototyping & Interactive prototype & 1 minggu \\
-Testing & Usability testing & 1 minggu \\
-Refinement & Iterasi berdasarkan feedback & 1 minggu \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\textbf{TOTAL ESTIMASI}: 7-9 minggu untuk complete UI/UX design.
-
-\subsection{Deliverables Desain}
-
-Hasil akhir dari fase desain UI/UX akan mencakup:
-
-\begin{itemize}[leftmargin=*]
-    \item \textbf{User Personas} — Dokumen lengkap untuk 3 target user
-    \item \textbf{User Journey Maps} — Flow lengkap untuk setiap persona
-    \item \textbf{Wireframes} — Low-fidelity untuk semua halaman utama
-    \item \textbf{High-Fidelity Mockups} — Desain visual final untuk development
-    \item \textbf{Interactive Prototype} — Clickable prototype untuk testing
-    \item \textbf{Design System} — Component library dan style guide
-    \item \textbf{Accessibility Checklist} — Dokumentasi compliance WCAG 2.2
-\end{itemize}
-
-\textbf{CATATAN PENTING}: Semua deliverables di atas adalah RENCANA yang akan dikerjakan pada fase development. Saat ini belum ada mockup, wireframe, atau design system yang sudah dibuat.
+\textbf{STATUS}: Placeholder ini akan diisi dengan tangkapan layar desain Figma setelah fase UI/UX design selesai.
