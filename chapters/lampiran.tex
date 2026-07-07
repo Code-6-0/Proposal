@@ -10,10 +10,10 @@
 \centering
 \caption{Schema Tabel Users}
 \label{tab:schema_users}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabular}{|l|l|p{0.4\textwidth}|}
+\hline
 \textbf{Kolom} & \textbf{Tipe} & \textbf{Keterangan} \\
-\midrule
+\hline
 id & UUID & Primary Key \\
 email & VARCHAR(255) & Unique, NOT NULL \\
 password & VARCHAR(255) & Hashed, NOT NULL \\
@@ -23,18 +23,18 @@ phone & VARCHAR(20) & Nullable \\
 address & TEXT & Nullable \\
 created\_at & TIMESTAMP & Default NOW() \\
 updated\_at & TIMESTAMP & Auto-update \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
 \end{table}
 
 \begin{table}[H]
 \centering
 \caption{Schema Tabel Products}
 \label{tab:schema_products}
-\begin{tabularx}{\textwidth}{lXX}
-\toprule
+\begin{tabular}{|l|l|p{0.4\textwidth}|}
+\hline
 \textbf{Kolom} & \textbf{Tipe} & \textbf{Keterangan} \\
-\midrule
+\hline
 id & UUID & Primary Key \\
 umkm\_id & UUID & Foreign Key ke users \\
 name & VARCHAR(255) & NOT NULL \\
@@ -50,6 +50,6 @@ storage\_temp & DECIMAL & Celsius \\
 fes\_score & INTEGER & 0-100 \\
 status & ENUM & available, sold, donated \\
 created\_at & TIMESTAMP & Default NOW() \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
 \end{table}
